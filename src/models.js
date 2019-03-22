@@ -5,6 +5,11 @@ export default [
         origin: 'https://sketchfab.com/osuecampus'
     },
     {
+        name: 'Hyena Skull',
+        path: './assets/models/hyena-skull.obj',
+        origin: 'https://www.myminifactory.com/users/Digimorph'
+    },
+    {
         name: 'Lion Skull (for big cats)',
         path: './assets/models/lion-skull.obj',
         origin: 'https://sketchfab.com/aucklandmuseum'
@@ -15,9 +20,9 @@ export default [
         origin: 'https://sketchfab.com/openededinburgh'
     },
     {
-        name: 'Chicken Skull (for birds)',
-        path: './assets/models/chicken-skull.obj',
-        origin: 'https://sketchfab.com/misterdevious'
+        name: 'Bear Skull',
+        path: './assets/models/bear-skull.obj',
+        origin: 'https://sketchfab.com/geoffreymarchal'
     },
     {
         name: 'Horse Skull',
@@ -35,14 +40,19 @@ export default [
         origin: 'https://sketchfab.com/victorzug'
     },
     {
-        name: 'Bear Skull',
-        path: './assets/models/bear-skull.obj',
-        origin: 'https://sketchfab.com/geoffreymarchal'
-    },
-    {
         name: 'Rat Skull',
         path: './assets/models/rat-skull.obj',
         origin: 'https://www.thingiverse.com/scienceminer/about'
+    },
+    {
+        name: 'Chicken Skull (for birds)',
+        path: './assets/models/chicken-skull.obj',
+        origin: 'https://sketchfab.com/misterdevious'
+    },
+    {
+        name: 'Crocodile Skull',
+        path: './assets/models/crocodile-skull.obj',
+        origin: 'https://cults3d.com/en/users/MadScientist3D/creations'
     },
     {
         name: 'Alligator Skull',

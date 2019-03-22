@@ -32,17 +32,19 @@
 
         <div class="column-2">
             <div class="toolbar" v-if="!apiFromEnv">
-                <a-input v-model="apiKey"  placeholder="Paste your Flickr API key here to enable inline search" style="margin-bottom: 8px; margin-right: 8px;"/>
+                <a-input v-model="apiKey" placeholder="Paste your Flickr API key here to enable inline search"
+                         style="margin-bottom: 8px; margin-right: 8px;"/>
             </div>
-            <div class="toolbar" v-if="apiKey" style="border-style:solid; border-color:#E79191; border-radius:5px; padding-top:7px; padding-left:4px; margin-bottom:5px;">
+            <div class="toolbar" v-if="apiKey"
+                 style="border-style:solid; border-color:#E79191; border-radius:5px; padding-top:7px; padding-left:4px; margin-bottom:5px;">
                 <a-input v-model="searchTags"
-                    placeholder="Flickr Search Tags"
-                    style="margin-bottom: 8px; margin-right: 8px;"
+                         placeholder="Flickr Search Tags"
+                         style="margin-bottom: 8px; margin-right: 8px;"
                 />
                 <a-button @click="searchFlickr" style="margin-right: 8px">Search!</a-button>
                 <a-button @click="paginateSearch" style="margin-right: 8px">Fetch page {{currentPage + 1}}</a-button>
             </div>
-            <div v-if=lastSearchError >
+            <div v-if=lastSearchError>
                 <div style="font-color:red;">{{lastSearchError}}</div>
             </div>
             <div class="toolbar">
@@ -111,7 +113,6 @@
 
     import models from '../models'
     import photos from '../photos'
-    import searchResults from '../rawSearch'
 
     import getFlickrId from '../get-flickr-id'
     import rawSearch from '../rawSearch';
@@ -142,9 +143,9 @@
         return getFlickrId(url) || url;
     }
 
-    function convertToURLs(searchResults){
+    function convertToURLs(searchResults) {
         return searchResults.map(r => `https://farm${r.farm}.staticflickr.com/${r.server}/${r.id}_${r.secret}.jpg`);
-    } 
+    }
 
     export default {
         components: {ModelViewer, ImageThumb},
@@ -157,9 +158,9 @@
                 rotateZ: 0,
                 zoom: 10,
                 imageUrl: '',
-                searchTags:'',
+                searchTags: '',
                 lastSearchError: null,
-                apiKey:null,
+                apiKey: null,
                 apiFromEnv: false,
                 currentPage: 1,
                 imageZoom: 100,
@@ -348,41 +349,40 @@
             getOne() {
                 this.imageUrl = this.unregistered.shift();
             },
-            searchFlickr(){
+            searchFlickr() {
                 fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.apiKey}&license=2%2C3%2C4%2C5%2C6%2C9&format=json&nojsoncallback=1&tags=${this.searchTags}&page=${this.currentPage}`)
-                    .then(response =>{
-                            if(response.ok){                                
+                    .then(response => {
+                            if (response.ok) {
                                 return response.json();
                             }
                             throw new Error(`The request failed: ${response.body}`);
                         }
                     )
-                    .then( body => {
+                    .then(body => {
                         console.log(body);
-                        if(body.stat != "ok"){
+                        if (body.stat != "ok") {
                             throw new Error(`Flickr bounced the request: ${body.message}`)
                         }
                         return body;
                     })
-                    .then((value) =>{
+                    .then((value) => {
                             let storageData = localStorage.getItem(STORAGE_KEY);
                             storageData = storageData && JSON.parse(storageData) || [];
 
                             let urlsFromSearch = convertToURLs(value.photos.photo);
                             const searchUrls = urlsFromSearch.filter(url => !this.existed[getUrlHash(url)]);
-                            
+
                             this.unregistered = [...searchUrls, ...this.unregistered];
                         }
-                    ).catch((error)=>{
-                        this.lastSearchError = error.message;
-                        console.log(error.message);
-                    });
+                    ).catch((error) => {
+                    this.lastSearchError = error.message;
+                    console.log(error.message);
+                });
             },
             paginateSearch() {
                 this.currentPage++;
                 this.searchFlickr();
             }
-
         },
         mounted() {
             window.addEventListener('mouseup', this.imageClipDragStop);
@@ -390,10 +390,10 @@
             import('../data')
                 .then(({default: data}) => {
                     //load Flickr api key from env if able
-                    if(process.env.VUE_APP_FLICKR_API && process.env.VUE_APP_FLICKR_API.length == 32){
+                    if (process.env.VUE_APP_FLICKR_API && process.env.VUE_APP_FLICKR_API.length == 32) {
                         this.apiFromEnv = true;
                         this.apiKey = process.env.VUE_APP_FLICKR_API;
-                    }else{
+                    } else {
                         console.log("Could not find env, allowing manual entry");
                     }
 
@@ -406,7 +406,7 @@
 
                     let urlsFromSearch = convertToURLs(rawSearch);
                     const rawUnregistered = urlsFromSearch.filter(raw => !this.existed[getUrlHash(raw)]);
-                    
+
                     this.data = storageData;
                     this.unregistered = [...rawUnregistered, ...unregistered];
                 });

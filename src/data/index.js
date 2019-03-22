@@ -1,4 +1,6 @@
+import alligator from './alligator'
 import cat from './cat'
+import cattle from './cattle'
 import cheetah from './cheetah'
 import doberman from './doberman'
 import eagle from './eagle'
@@ -9,16 +11,18 @@ import grizzly from './grizzly'
 import hawk from './hawk'
 import horse from './horse'
 import husky from './husky'
+import hyena from './hyena'
 import labrador from './labrador'
 import lion from './lion'
 import rat from './rat'
 import tiger from './tiger'
 import wolf from './wolf'
-import alligator from './alligator'
 
 export default (
     [
+        ...alligator,
         ...cat,
+        ...cattle,
         ...cheetah,
         ...doberman,
         ...eagle,
@@ -29,11 +33,11 @@ export default (
         ...hawk,
         ...horse,
         ...husky,
+        ...hyena,
         ...labrador,
         ...lion,
         ...rat,
         ...tiger,
-        ...wolf,
-        ...alligator
+        ...wolf
     ]
 );

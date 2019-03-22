@@ -43,5 +43,10 @@ export default [
         name: 'Rat Skull',
         path: './assets/models/rat-skull.obj',
         origin: 'https://www.thingiverse.com/scienceminer/about'
+    },
+    {
+        name: 'Alligator Skull',
+        path: './assets/models/alligator-skull.obj',
+        origin: 'https://sketchfab.com/neometrixtech'
     }
 ];

@@ -17,6 +17,7 @@ import lion from './lion'
 import rat from './rat'
 import tiger from './tiger'
 import wolf from './wolf'
+import lizard from './lizard'
 
 export default (
     [
@@ -38,6 +39,7 @@ export default (
         ...lion,
         ...rat,
         ...tiger,
-        ...wolf
+        ...wolf,
+        ...lizard
     ]
 );

@@ -63,5 +63,10 @@ export default [
         name: 'Iguana Skull (for lizards)',
         path: './assets/models/iguana-skull.obj',
         origin: 'https://sketchfab.com/3d-models/green-iguana-skull-ouvc-10677-1427f887e0fd41eb9c9c97e07c3610e3'
+    },
+    {
+        name: 'Python Skull',
+        path: './assets/models/python-skull.obj',
+        origin: 'https://www.tinkercad.com/things/aTogRekErps-python-skull-for-dr-close'
     }
 ];

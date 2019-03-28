@@ -61,7 +61,7 @@
                         Special Thanks: <a href="https://github.com/xrabohrok" target="_blank">xrabohrok</a>
                         - Thank you for helping improve this tool!
                     </div>
-                    <div>Latest update: 2019-03-22</div>
+                    <div>Latest update: 2019-03-28</div>
                     <div>
                         <a href="https://github.com/x6ud/x6ud.github.io/issues" target="_blank">Create an issue</a>
                         <span> - Suitable photos are lacking in some directions, please leave a message if you find one on Flickr.</span>

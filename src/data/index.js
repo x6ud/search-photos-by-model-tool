@@ -14,10 +14,11 @@ import husky from './husky'
 import hyena from './hyena'
 import labrador from './labrador'
 import lion from './lion'
+import lizard from './lizard'
 import rat from './rat'
+import snake from './snake'
 import tiger from './tiger'
 import wolf from './wolf'
-import lizard from './lizard'
 
 export default (
     [
@@ -37,9 +38,10 @@ export default (
         ...hyena,
         ...labrador,
         ...lion,
+        ...lizard,
         ...rat,
+        ...snake,
         ...tiger,
-        ...wolf,
-        ...lizard
+        ...wolf
     ]
 );

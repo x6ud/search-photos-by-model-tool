@@ -40,6 +40,11 @@ export default [
         origin: 'https://sketchfab.com/victorzug'
     },
     {
+        name: 'Mule Deer Skull',
+        path: './assets/models/mule-deer-skull.obj',
+        origin: 'https://sketchfab.com/uviclib'
+    },
+    {
         name: 'Rat Skull',
         path: './assets/models/rat-skull.obj',
         origin: 'https://www.thingiverse.com/scienceminer/about'

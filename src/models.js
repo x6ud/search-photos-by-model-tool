@@ -50,6 +50,11 @@ export default [
         origin: 'https://www.thingiverse.com/scienceminer/about'
     },
     {
+        name: 'Rabbit Skull',
+        path: './assets/models/rabbit-skull.obj',
+        origin: 'https://sketchfab.com/agancz'
+    },
+    {
         name: 'Chicken Skull (for birds)',
         path: './assets/models/chicken-skull.obj',
         origin: 'https://sketchfab.com/misterdevious'

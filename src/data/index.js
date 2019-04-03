@@ -2,6 +2,7 @@ import alligator from './alligator'
 import cat from './cat'
 import cattle from './cattle'
 import cheetah from './cheetah'
+import deer from './deer'
 import doberman from './doberman'
 import eagle from './eagle'
 import fox from './fox'
@@ -26,6 +27,7 @@ export default (
         ...cat,
         ...cattle,
         ...cheetah,
+        ...deer,
         ...doberman,
         ...eagle,
         ...fox,

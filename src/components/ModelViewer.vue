@@ -149,11 +149,13 @@
                         const mesh = obj.children[0];
                         const box = new THREE.Box3().setFromObject(obj);
 
-                        const center = box.getCenter();
+                        const center = new THREE.Vector3();
+                        box.getCenter(center);
                         mesh.position.set(-center.x, -center.y, -center.z);
 
                         // resize
-                        const size = box.getSize();
+                        const size = new THREE.Vector3();
+                        box.getSize(size);
                         const scale = this.preferSize / Math.max(size.x, size.y, size.z);
                         mesh.scale.set(scale, scale, scale);
 

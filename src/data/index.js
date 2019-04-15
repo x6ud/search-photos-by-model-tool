@@ -16,6 +16,7 @@ import hyena from './hyena'
 import labrador from './labrador'
 import lion from './lion'
 import lizard from './lizard'
+import rabbit from './rabbit'
 import rat from './rat'
 import snake from './snake'
 import tiger from './tiger'
@@ -41,6 +42,7 @@ export default (
         ...labrador,
         ...lion,
         ...lizard,
+        ...rabbit,
         ...rat,
         ...snake,
         ...tiger,

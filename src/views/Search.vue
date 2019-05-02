@@ -19,7 +19,7 @@
                         <a-button type="primary" @click="search">Search</a-button>
                     </div>
 
-                    <div style="margin-bottom: 8px;">Direction: (skull type dose not affect search results)</div>
+                    <div style="margin-bottom: 8px;">Direction: (skull type does not affect search results)</div>
 
                     <a-select v-model="model" style="width: 100%; margin-bottom: 8px;">
                         <a-select-option v-for="option in models"

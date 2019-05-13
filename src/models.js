@@ -20,6 +20,11 @@ export default [
         origin: 'https://sketchfab.com/openededinburgh'
     },
     {
+        name: 'Opossum Skull',
+        path: './assets/models/opossum-skull.obj',
+        origin: 'https://www.thingiverse.com/Spfaff1994/designs'
+    },
+    {
         name: 'Bear Skull',
         path: './assets/models/bear-skull.obj',
         origin: 'https://sketchfab.com/geoffreymarchal'
@@ -43,6 +48,11 @@ export default [
         name: 'Mule Deer Skull',
         path: './assets/models/mule-deer-skull.obj',
         origin: 'https://sketchfab.com/uviclib'
+    },
+    {
+        name: 'Pig Skull',
+        path: './assets/models/pig-skull.obj',
+        origin: 'https://sketchfab.com/geoffreymarchal'
     },
     {
         name: 'Rat Skull',
@@ -78,5 +88,10 @@ export default [
         name: 'Python Skull',
         path: './assets/models/python-skull.obj',
         origin: 'https://www.tinkercad.com/things/aTogRekErps-python-skull-for-dr-close'
+    },
+    {
+        name: 'Dolphin Skull',
+        path: './assets/models/dolphin-skull.obj',
+        origin: 'https://sketchfab.com/geoffreymarchal'
     }
 ];

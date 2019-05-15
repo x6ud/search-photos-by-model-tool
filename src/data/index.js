@@ -18,6 +18,7 @@ import lion from './lion'
 import lizard from './lizard'
 import rabbit from './rabbit'
 import rat from './rat'
+import raven from './raven'
 import snake from './snake'
 import tiger from './tiger'
 import wolf from './wolf'
@@ -44,6 +45,7 @@ export default (
         ...lizard,
         ...rabbit,
         ...rat,
+        ...raven,
         ...snake,
         ...tiger,
         ...wolf

@@ -62,15 +62,14 @@
                             Special Thanks: <a href="https://github.com/xrabohrok" target="_blank">xrabohrok</a>
                             - Thank you for helping improve this tool!
                         </div>
-                        <div>Latest update: 2019-05-13</div>
+                        <div>Latest update: 2019-05-15</div>
                         <div>
                             <a href="https://github.com/x6ud/x6ud.github.io/issues" target="_blank">Create an issue</a>
                             <span> - Suitable photos are lacking in some directions, please leave a message if you find one on Flickr.</span>
                         </div>
                         <div>
                             <a href="https://ko-fi.com/x6udpngx" target="_blank">
-                                <img src="../assets/ko-fi.png" alt="" width="14px" height="14px"
-                                     style="margin-right: .25em">
+                                <img src="../assets/ko-fi.png" alt="" style="margin-right: .25em">
                                 <span style="vertical-align: middle;">Ko-fi.com/x6udpngx</span>
                             </a>
                         </div>
@@ -107,6 +106,8 @@
     import ImageViewer from '../components/ImageViewer.vue'
 
     import models from '../models'
+
+    import {angEulerToQuaternion, distance} from "../quaternion";
 
     export default {
         components: {ModelViewer, ImageThumb, ImageViewer},
@@ -154,15 +155,15 @@
                     result = result.filter(item => item.tags && item.tags.includes(this.keyword));
                 }
 
+                const qInput = angEulerToQuaternion(this.rotateX, this.rotateY, this.rotateZ);
+
                 // calculate direction similarity
                 result = result.map(item => {
                     const flip = item.ry * this.rotateY < 0, // flip the image horizontally if it can match better
                         rx = item.rx,
                         ry = flip ? -item.ry : item.ry,
                         rz = flip ? -item.rz : item.rz,
-                        match = Math.abs(this.rotateX - rx)
-                            + Math.abs(this.rotateY - ry) * 1.5
-                            + Math.abs(this.rotateZ - rz) * 0.5;
+                        match = distance(qInput, angEulerToQuaternion(rx, ry, rz));
                     return {...item, flip, ry, rz, match};
                 });
 

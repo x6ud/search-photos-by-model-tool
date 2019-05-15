@@ -93,5 +93,10 @@ export default [
         name: 'Dolphin Skull',
         path: './assets/models/dolphin-skull.obj',
         origin: 'https://sketchfab.com/geoffreymarchal'
+    },
+    {
+        name: 'Human Skull',
+        path: './assets/models/human-skull.obj',
+        origin: 'https://sketchfab.com/martinjario'
     }
 ];

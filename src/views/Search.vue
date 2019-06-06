@@ -62,7 +62,7 @@
                             Special Thanks: <a href="https://github.com/xrabohrok" target="_blank">xrabohrok</a>
                             - Thank you for helping improve this tool!
                         </div>
-                        <div>Latest update: 2019-05-15</div>
+                        <div>Latest update: 2019-06-06</div>
                         <div>
                             <a href="https://github.com/x6ud/x6ud.github.io/issues" target="_blank">Create an issue</a>
                             <span> - Suitable photos are lacking in some directions, please leave a message if you find one on Flickr.</span>
@@ -107,7 +107,7 @@
 
     import models from '../models'
 
-    import {angEulerToQuaternion, distance} from "../quaternion";
+    import {degEulerToQuaternion, distance} from "../quaternion";
 
     export default {
         components: {ModelViewer, ImageThumb, ImageViewer},
@@ -155,7 +155,7 @@
                     result = result.filter(item => item.tags && item.tags.includes(this.keyword));
                 }
 
-                const qInput = angEulerToQuaternion(this.rotateX, this.rotateY, this.rotateZ);
+                const qInput = degEulerToQuaternion(this.rotateX, this.rotateY, this.rotateZ);
 
                 // calculate direction similarity
                 result = result.map(item => {
@@ -163,7 +163,7 @@
                         rx = item.rx,
                         ry = flip ? -item.ry : item.ry,
                         rz = flip ? -item.rz : item.rz,
-                        match = distance(qInput, angEulerToQuaternion(rx, ry, rz));
+                        match = distance(qInput, degEulerToQuaternion(rx, ry, rz));
                     return {...item, flip, ry, rz, match};
                 });
 

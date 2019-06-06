@@ -15,7 +15,7 @@ export function quaternion(yaw, pitch, roll) {
 
 const DEG_2_RAD = 1 / 180 * Math.PI;
 
-export function angEulerToQuaternion(x, y, z) {
+export function degEulerToQuaternion(x, y, z) {
     return quaternion(z * DEG_2_RAD, y * DEG_2_RAD, x * DEG_2_RAD);
 }
 

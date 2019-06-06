@@ -65,6 +65,11 @@ export default [
         origin: 'https://sketchfab.com/agancz'
     },
     {
+        name: 'Bat Skull',
+        path: './assets/models/bat-skull.obj',
+        origin: 'https://sketchfab.com/uod_museums'
+    },
+    {
         name: 'Chicken Skull (for birds)',
         path: './assets/models/chicken-skull.obj',
         origin: 'https://sketchfab.com/misterdevious'

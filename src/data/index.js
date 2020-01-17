@@ -14,6 +14,7 @@ import horse from './horse'
 import husky from './husky'
 import hyena from './hyena'
 import labrador from './labrador'
+import leopard from './leopard'
 import lion from './lion'
 import lizard from './lizard'
 import opossum from './opossum'
@@ -43,6 +44,7 @@ export default (
         ...husky,
         ...hyena,
         ...labrador,
+        ...leopard,
         ...lion,
         ...lizard,
         ...opossum,

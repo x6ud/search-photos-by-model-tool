@@ -103,6 +103,9 @@
                     <span class="btn-remove" @click="remove(item)"><a-icon type="close"/></span>
                 </image-thumb>
             </div>
+            <a-button size="small" style="width: 100%; margin-top: 8px;" @click="removeInvalid">
+                Remove Invalid Images
+            </a-button>
         </div>
     </div>
 </template>
@@ -113,9 +116,10 @@
 
     import models from '../models'
     import photos from '../photos'
+    import rawSearch from '../rawSearch'
 
-    import getFlickrId from '../get-flickr-id'
-    import rawSearch from '../rawSearch';
+    import getFlickrId from '../utils/get-flickr-id'
+    import isImageExists from '../utils/is-image-exists'
 
     const THUMB_SIZE = 160;
     const STORAGE_KEY = 'ars-data';
@@ -301,7 +305,6 @@
                     this.data.push(data);
                 }
                 window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
-                // this.$notification.success({message: 'Saved successfully.', placement: 'topLeft', duration: 2});
             },
             load(item) {
                 this.rotateX = item.rx;
@@ -319,11 +322,6 @@
                 if (window.confirm(`Are you sure you want to delete ${item.url}?`)) {
                     this.data.splice(this.data.findIndex(curr => curr === item), 1);
                     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
-                    // this.$notification.success({
-                    //     message: 'Deleted successfully.',
-                    //     placement: 'topLeft',
-                    //     duration: 2
-                    // });
                 }
             },
             importData() {
@@ -331,20 +329,10 @@
                 if (json) {
                     this.data = JSON.parse(json);
                     window.localStorage.setItem(STORAGE_KEY, json);
-                    // this.$notification.success({
-                    //     message: 'Records were imported successfully.',
-                    //     placement: 'topLeft',
-                    //     duration: 2
-                    // });
                 }
             },
             exportData() {
                 copyToClipboard(JSON.stringify(this.data));
-                // this.$notification.success({
-                //     message: 'Records were exported to clipboard.',
-                //     placement: 'topLeft',
-                //     duration: 2
-                // });
             },
             getOne() {
                 this.imageUrl = this.unregistered.shift();
@@ -360,7 +348,7 @@
                     )
                     .then(body => {
                         console.log(body);
-                        if (body.stat != "ok") {
+                        if (body.stat !== "ok") {
                             throw new Error(`Flickr bounced the request: ${body.message}`)
                         }
                         return body;
@@ -382,6 +370,21 @@
             paginateSearch() {
                 this.currentPage++;
                 this.searchFlickr();
+            },
+            async removeInvalid() {
+                const invalid = [];
+                const total = this.data.length;
+                let progress = 0;
+                const promises = this.data.map(async item => {
+                    if (!(await isImageExists(item.url))) {
+                        invalid.push(item);
+                    }
+                    progress += 1;
+                    console.log(`${progress}/${total} checked`);
+                });
+                await Promise.all(promises);
+                this.data = this.data.filter(item => !invalid.includes(item));
+                console.log(`${invalid.length} invalid image(s) removed`);
             }
         },
         mounted() {
@@ -507,7 +510,7 @@
             flex-direction: column;
             align-items: flex-start;
             margin-left: 10px;
-            height: 508px;
+            height: 536px;
 
             .list {
                 flex: 1 1;

@@ -65,17 +65,6 @@ export default [{
     "h": 683,
     "tags": ["deer"]
 }, {
-    "rx": 30,
-    "ry": -22,
-    "rz": 12,
-    "url": "https://farm6.static.flickr.com/5560/15105575417_0446356ff7_b.jpg",
-    "cx": 616,
-    "cy": 38,
-    "cs": 268,
-    "w": 1024,
-    "h": 768,
-    "tags": ["deer"]
-}, {
     "rx": 25,
     "ry": -3,
     "rz": 6,
@@ -164,28 +153,6 @@ export default [{
     "h": 683,
     "tags": ["deer"]
 }, {
-    "rx": 19,
-    "ry": 1,
-    "rz": 0,
-    "url": "https://farm4.static.flickr.com/3471/3353516029_0a1f9affc1_b.jpg",
-    "cx": 114,
-    "cy": 75,
-    "cs": 269,
-    "w": 1024,
-    "h": 819,
-    "tags": ["deer"]
-}, {
-    "rx": 58,
-    "ry": -68,
-    "rz": 63,
-    "url": "https://farm4.static.flickr.com/3876/15269096306_c8b5aa2cc9_b.jpg",
-    "cx": 44,
-    "cy": 220,
-    "cs": 194,
-    "w": 768,
-    "h": 1024,
-    "tags": ["deer"]
-}, {
     "rx": 16,
     "ry": 0,
     "rz": 0,
@@ -206,17 +173,6 @@ export default [{
     "cs": 132,
     "w": 686,
     "h": 1024,
-    "tags": ["deer"]
-}, {
-    "rx": 23,
-    "ry": 14,
-    "rz": 0,
-    "url": "https://farm6.static.flickr.com/5556/15292129065_07b87d199b_b.jpg",
-    "cx": 667,
-    "cy": 117,
-    "cs": 234,
-    "w": 1024,
-    "h": 768,
     "tags": ["deer"]
 }, {
     "rx": 21,
@@ -272,17 +228,6 @@ export default [{
     "cs": 383,
     "w": 1024,
     "h": 683,
-    "tags": ["deer"]
-}, {
-    "rx": 17,
-    "ry": 53,
-    "rz": -10,
-    "url": "https://farm6.static.flickr.com/5589/15105549308_8c15ff9666_b.jpg",
-    "cx": 579,
-    "cy": 15,
-    "cs": 318,
-    "w": 1024,
-    "h": 767,
     "tags": ["deer"]
 }, {
     "rx": 19,
@@ -349,17 +294,6 @@ export default [{
     "cs": 282,
     "w": 1024,
     "h": 686,
-    "tags": ["deer"]
-}, {
-    "rx": 45,
-    "ry": 46,
-    "rz": -28,
-    "url": "https://farm3.static.flickr.com/2941/15291744562_53cf9752f3_b.jpg",
-    "cx": 599,
-    "cy": 30,
-    "cs": 282,
-    "w": 1024,
-    "h": 768,
     "tags": ["deer"]
 }, {
     "rx": 31,
@@ -591,17 +525,6 @@ export default [{
     "cs": 576,
     "w": 685,
     "h": 1024,
-    "tags": ["deer"]
-}, {
-    "rx": 12,
-    "ry": 14,
-    "rz": 0,
-    "url": "https://farm4.static.flickr.com/3144/2925303234_dddf8e59fd_b.jpg",
-    "cx": 536,
-    "cy": 214,
-    "cs": 303,
-    "w": 1024,
-    "h": 685,
     "tags": ["deer"]
 }, {
     "rx": 21,

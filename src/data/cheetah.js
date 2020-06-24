@@ -142,17 +142,6 @@ export default [{
     "h": 1024,
     "tags": ["cheetah"]
 }, {
-    "rx": 20,
-    "ry": 1,
-    "rz": 4,
-    "url": "https://farm8.static.flickr.com/7136/6943655944_819a8de27b_b.jpg",
-    "cx": 370,
-    "cy": 0,
-    "cs": 400,
-    "w": 1000,
-    "h": 666,
-    "tags": ["cheetah"]
-}, {
     "rx": 55,
     "ry": -52,
     "rz": 38,
@@ -294,17 +283,6 @@ export default [{
     "cs": 290,
     "w": 681,
     "h": 1024,
-    "tags": ["cheetah"]
-}, {
-    "rx": 29,
-    "ry": 12,
-    "rz": -12,
-    "url": "https://farm8.static.flickr.com/7101/6867144104_c3ae57c75f_b.jpg",
-    "cx": 438,
-    "cy": 131,
-    "cs": 290,
-    "w": 1024,
-    "h": 680,
     "tags": ["cheetah"]
 }, {
     "rx": 22,

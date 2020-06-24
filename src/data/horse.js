@@ -857,17 +857,6 @@ export default [{
     "h": 768,
     "tags": ["horse"]
 }, {
-    "rx": 41,
-    "ry": -1,
-    "rz": 0,
-    "url": "https://farm8.static.flickr.com/7456/13010644775_3f7b614de0_b.jpg",
-    "cx": 125,
-    "cy": 223,
-    "cs": 496,
-    "w": 683,
-    "h": 1024,
-    "tags": ["horse"]
-}, {
     "rx": 42,
     "ry": 5,
     "rz": -6,

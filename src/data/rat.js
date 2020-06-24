@@ -21,28 +21,6 @@ export default [{
     "h": 768,
     "tags": ["rat"]
 }, {
-    "rx": 16,
-    "ry": -5,
-    "rz": 0,
-    "url": "https://farm7.static.flickr.com/6023/5959588674_8b231de0eb_b.jpg",
-    "cx": 486,
-    "cy": 191,
-    "cs": 362,
-    "w": 1024,
-    "h": 768,
-    "tags": ["rat"]
-}, {
-    "rx": 14,
-    "ry": 2,
-    "rz": 0,
-    "url": "https://farm7.static.flickr.com/6130/5965461158_7de0734bf4_b.jpg",
-    "cx": 153,
-    "cy": 0,
-    "cs": 768,
-    "w": 1024,
-    "h": 768,
-    "tags": ["rat"]
-}, {
     "rx": 18,
     "ry": -17,
     "rz": -6,
@@ -239,17 +217,6 @@ export default [{
     "cs": 683,
     "w": 1024,
     "h": 683,
-    "tags": ["rat"]
-}, {
-    "rx": 41,
-    "ry": -15,
-    "rz": -10,
-    "url": "https://farm7.static.flickr.com/6142/5964908191_c7d9ecbb22_b.jpg",
-    "cx": 138,
-    "cy": 85,
-    "cs": 683,
-    "w": 1024,
-    "h": 768,
     "tags": ["rat"]
 }, {
     "rx": 24,
@@ -582,17 +549,6 @@ export default [{
     "h": 683,
     "tags": ["rat"]
 }, {
-    "rx": 15,
-    "ry": -20,
-    "rz": 0,
-    "url": "https://farm6.static.flickr.com/5103/5762546288_d64bb3a486_b.jpg",
-    "cx": 57,
-    "cy": 0,
-    "cs": 768,
-    "w": 1024,
-    "h": 768,
-    "tags": ["rat"]
-}, {
     "rx": 28,
     "ry": 4,
     "rz": 0,
@@ -600,28 +556,6 @@ export default [{
     "cx": 180,
     "cy": 0,
     "cs": 683,
-    "w": 1024,
-    "h": 768,
-    "tags": ["rat"]
-}, {
-    "rx": 12,
-    "ry": 0,
-    "rz": -2,
-    "url": "https://farm6.static.flickr.com/5310/5762550972_bbc31086cc_b.jpg",
-    "cx": 168,
-    "cy": 77,
-    "cs": 683,
-    "w": 1024,
-    "h": 768,
-    "tags": ["rat"]
-}, {
-    "rx": 25,
-    "ry": 3,
-    "rz": 0,
-    "url": "https://farm6.static.flickr.com/5181/5782368996_12e22c4ee8_b.jpg",
-    "cx": 491,
-    "cy": 235,
-    "cs": 533,
     "w": 1024,
     "h": 768,
     "tags": ["rat"]
@@ -657,17 +591,6 @@ export default [{
     "cs": 405,
     "w": 1024,
     "h": 683,
-    "tags": ["rat"]
-}, {
-    "rx": 39,
-    "ry": 7,
-    "rz": -6,
-    "url": "https://farm4.static.flickr.com/3079/5762547214_7db0bdfaa8_b.jpg",
-    "cx": 0,
-    "cy": 0,
-    "cs": 768,
-    "w": 1024,
-    "h": 768,
     "tags": ["rat"]
 }, {
     "rx": 40,
@@ -712,17 +635,6 @@ export default [{
     "cs": 681,
     "w": 1014,
     "h": 681,
-    "tags": ["rat"]
-}, {
-    "rx": 58,
-    "ry": -83,
-    "rz": 10,
-    "url": "https://farm6.static.flickr.com/5261/5782378002_956b05f78f_b.jpg",
-    "cx": 30,
-    "cy": 0,
-    "cs": 576,
-    "w": 1024,
-    "h": 576,
     "tags": ["rat"]
 }, {
     "rx": 61,
@@ -877,17 +789,6 @@ export default [{
     "cs": 274,
     "w": 1000,
     "h": 671,
-    "tags": ["rat"]
-}, {
-    "rx": 77,
-    "ry": 35,
-    "rz": -53,
-    "url": "https://farm6.static.flickr.com/5267/5782478842_211ddb43ae_b.jpg",
-    "cx": 436,
-    "cy": 204,
-    "cs": 498,
-    "w": 1024,
-    "h": 768,
     "tags": ["rat"]
 }, {
     "rx": 33,
@@ -1460,17 +1361,6 @@ export default [{
     "cs": 846,
     "w": 1024,
     "h": 1024,
-    "tags": ["rat"]
-}, {
-    "rx": 23,
-    "ry": 35,
-    "rz": 5,
-    "url": "https://farm6.static.flickr.com/5146/5782330466_df96c4c7bc_b.jpg",
-    "cx": 114,
-    "cy": 0,
-    "cs": 768,
-    "w": 1024,
-    "h": 768,
     "tags": ["rat"]
 }, {
     "rx": 55,

@@ -1,15 +1,4 @@
 export default [{
-    "rx": -8,
-    "ry": -56,
-    "rz": -10,
-    "url": "https://farm6.static.flickr.com/5606/14957348694_37872c4136_b.jpg",
-    "cx": 105,
-    "cy": 11,
-    "cs": 287,
-    "w": 1024,
-    "h": 792,
-    "tags": ["bird", "raven"]
-}, {
     "rx": 44,
     "ry": 15,
     "rz": -35,
@@ -621,17 +610,6 @@ export default [{
     "url": "https://farm5.static.flickr.com/4126/4960908621_136cff393e_b.jpg",
     "cx": 524,
     "cy": 155,
-    "cs": 173,
-    "w": 1024,
-    "h": 768,
-    "tags": ["bird", "raven"]
-}, {
-    "rx": -4,
-    "ry": -91,
-    "rz": 0,
-    "url": "https://farm2.static.flickr.com/1938/31714528398_df7e74a155_b.jpg",
-    "cx": 493,
-    "cy": 288,
     "cs": 173,
     "w": 1024,
     "h": 768,

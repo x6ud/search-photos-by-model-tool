@@ -450,17 +450,6 @@ export default [{
     "h": 1024,
     "tags": ["bird", "eagle"]
 }, {
-    "rx": -20,
-    "ry": 11,
-    "rz": 0,
-    "url": "https://farm3.static.flickr.com/2938/32771705144_00c94eb728_b.jpg",
-    "cx": 472,
-    "cy": 327,
-    "cs": 127,
-    "w": 1024,
-    "h": 683,
-    "tags": ["bird", "eagle"]
-}, {
     "rx": -7,
     "ry": -52,
     "rz": 11,

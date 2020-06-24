@@ -758,17 +758,6 @@ export default [{
     "h": 683,
     "tags": ["hyena"]
 }, {
-    "rx": 58,
-    "ry": -30,
-    "rz": 23,
-    "url": "https://farm4.static.flickr.com/3044/3082830769_10e21f7425_b.jpg",
-    "cx": 424,
-    "cy": 194,
-    "cs": 217,
-    "w": 1024,
-    "h": 680,
-    "tags": ["hyena"]
-}, {
     "rx": -60,
     "ry": 108,
     "rz": 83,
@@ -1231,17 +1220,6 @@ export default [{
     "h": 685,
     "tags": ["hyena"]
 }, {
-    "rx": 19,
-    "ry": 20,
-    "rz": -6,
-    "url": "https://farm3.static.flickr.com/2750/4026180319_164a74554b_b.jpg",
-    "cx": 377,
-    "cy": 216,
-    "cs": 189,
-    "w": 1024,
-    "h": 682,
-    "tags": ["hyena"]
-}, {
     "rx": -62,
     "ry": 130,
     "rz": 37,
@@ -1337,17 +1315,6 @@ export default [{
     "cx": 500,
     "cy": 302,
     "cs": 128,
-    "w": 1024,
-    "h": 681,
-    "tags": ["hyena"]
-}, {
-    "rx": 34,
-    "ry": 81,
-    "rz": -30,
-    "url": "https://farm7.static.flickr.com/6142/5937901711_1a274d33fe_b.jpg",
-    "cx": 609,
-    "cy": 119,
-    "cs": 255,
     "w": 1024,
     "h": 681,
     "tags": ["hyena"]

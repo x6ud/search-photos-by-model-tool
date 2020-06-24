@@ -934,17 +934,6 @@ export default [{
     "h": 768,
     "tags": ["cat"]
 }, {
-    "rx": 24,
-    "ry": -30,
-    "rz": -8,
-    "url": "https://farm9.static.flickr.com/8052/8109859518_7cf34809a8_b.jpg",
-    "cx": 468,
-    "cy": 259,
-    "cs": 222,
-    "w": 1024,
-    "h": 768,
-    "tags": ["cat"]
-}, {
     "rx": 14,
     "ry": -28,
     "rz": -12,

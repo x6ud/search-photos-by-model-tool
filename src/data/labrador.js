@@ -923,17 +923,6 @@ export default [{
     "h": 540,
     "tags": ["dog", "labrador"]
 }, {
-    "rx": 31,
-    "ry": -67,
-    "rz": 0,
-    "url": "https://farm8.static.flickr.com/7018/6639311513_99624e3e4d_b.jpg",
-    "cx": 18,
-    "cy": 34,
-    "cs": 479,
-    "w": 768,
-    "h": 1024,
-    "tags": ["dog", "labrador"]
-}, {
     "rx": 0,
     "ry": 14,
     "rz": 0,
@@ -1305,17 +1294,6 @@ export default [{
     "cy": 21,
     "cs": 825,
     "w": 941,
-    "h": 1024,
-    "tags": ["dog", "labrador"]
-}, {
-    "rx": 27,
-    "ry": 1,
-    "rz": -10,
-    "url": "https://farm8.static.flickr.com/7485/15805837725_4bae5968f7_b.jpg",
-    "cx": 25,
-    "cy": 12,
-    "cs": 961,
-    "w": 1024,
     "h": 1024,
     "tags": ["dog", "labrador"]
 }, {

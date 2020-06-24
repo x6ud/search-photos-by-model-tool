@@ -923,17 +923,6 @@ export default [{
     "h": 749,
     "tags": ["bird", "hawk"]
 }, {
-    "rx": -33,
-    "ry": 68,
-    "rz": 0,
-    "url": "https://farm8.static.flickr.com/7018/6735956369_66880037dd_b.jpg",
-    "cx": 148,
-    "cy": 206,
-    "cs": 239,
-    "w": 678,
-    "h": 1024,
-    "tags": ["bird", "hawk"]
-}, {
     "rx": -12,
     "ry": 1,
     "rz": 8,

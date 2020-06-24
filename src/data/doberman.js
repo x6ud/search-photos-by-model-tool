@@ -76,17 +76,6 @@ export default [{
     "h": 819,
     "tags": ["dog", "doberman"]
 }, {
-    "rx": 42,
-    "ry": 12,
-    "rz": -6,
-    "url": "https://farm8.static.flickr.com/7352/16558925326_2cf3a0ecfd_b.jpg",
-    "cx": 162,
-    "cy": 175,
-    "cs": 337,
-    "w": 681,
-    "h": 1024,
-    "tags": ["dog", "doberman"]
-}, {
     "rx": 21,
     "ry": -3,
     "rz": 16,

@@ -131,17 +131,6 @@ export default [{
     "h": 683,
     "tags": ["dog", "husky"]
 }, {
-    "rx": 4,
-    "ry": -4,
-    "rz": 0,
-    "url": "https://farm8.static.flickr.com/7158/6630762509_8c83001d24_b.jpg",
-    "cx": 219,
-    "cy": 36,
-    "cs": 398,
-    "w": 1024,
-    "h": 856,
-    "tags": ["dog", "husky"]
-}, {
     "rx": 15,
     "ry": 35,
     "rz": -6,
@@ -789,17 +778,6 @@ export default [{
     "cs": 496,
     "w": 1024,
     "h": 683,
-    "tags": ["dog", "husky"]
-}, {
-    "rx": 3,
-    "ry": 18,
-    "rz": -4,
-    "url": "https://farm9.static.flickr.com/8200/8176865022_17bc167b98_b.jpg",
-    "cx": 0,
-    "cy": 0,
-    "cs": 770,
-    "w": 1024,
-    "h": 770,
     "tags": ["dog", "husky"]
 }, {
     "rx": 18,

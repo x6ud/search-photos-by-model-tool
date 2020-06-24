@@ -406,17 +406,6 @@ export default [{
     "h": 903,
     "tags": ["fox"]
 }, {
-    "rx": 23,
-    "ry": 7,
-    "rz": -6,
-    "url": "https://farm1.static.flickr.com/548/31790399902_d17fcddfb7_b.jpg",
-    "cx": 127,
-    "cy": 16,
-    "cs": 405,
-    "w": 1024,
-    "h": 762,
-    "tags": ["fox"]
-}, {
     "rx": 37,
     "ry": -51,
     "rz": 11,
@@ -470,17 +459,6 @@ export default [{
     "cs": 315,
     "w": 851,
     "h": 315,
-    "tags": ["fox"]
-}, {
-    "rx": 24,
-    "ry": 1,
-    "rz": -6,
-    "url": "https://farm9.static.flickr.com/8224/8430822100_b7b7f1c818_b.jpg",
-    "cx": 545,
-    "cy": 186,
-    "cs": 263,
-    "w": 1024,
-    "h": 733,
     "tags": ["fox"]
 }, {
     "rx": 46,
@@ -868,17 +846,6 @@ export default [{
     "h": 682,
     "tags": ["fox"]
 }, {
-    "rx": 19,
-    "ry": 1,
-    "rz": 0,
-    "url": "https://farm1.static.flickr.com/550/31790463042_14a57ec581_b.jpg",
-    "cx": 0,
-    "cy": 102,
-    "cs": 514,
-    "w": 1024,
-    "h": 990,
-    "tags": ["fox"]
-}, {
     "rx": 24,
     "ry": 1,
     "rz": 0,
@@ -1196,17 +1163,6 @@ export default [{
     "cs": 234,
     "w": 1024,
     "h": 768,
-    "tags": ["fox"]
-}, {
-    "rx": 42,
-    "ry": 37,
-    "rz": -24,
-    "url": "https://farm9.static.flickr.com/8238/8430819212_799f255b16_b.jpg",
-    "cx": 668,
-    "cy": 213,
-    "cs": 234,
-    "w": 1024,
-    "h": 782,
     "tags": ["fox"]
 }, {
     "rx": 40,
@@ -1682,17 +1638,6 @@ export default [{
     "h": 1024,
     "tags": ["fox"]
 }, {
-    "rx": 99,
-    "ry": -8,
-    "rz": -94,
-    "url": "https://farm9.static.flickr.com/8367/8430820560_3b210a9217_b.jpg",
-    "cx": 588,
-    "cy": 355,
-    "cs": 243,
-    "w": 1024,
-    "h": 762,
-    "tags": ["fox"]
-}, {
     "rx": 7,
     "ry": 30,
     "rz": -4,
@@ -1889,17 +1834,6 @@ export default [{
     "cs": 556,
     "w": 1024,
     "h": 768,
-    "tags": ["fox"]
-}, {
-    "rx": 17,
-    "ry": 0,
-    "rz": 0,
-    "url": "https://farm8.static.flickr.com/7199/6817762390_3b908cbd43_b.jpg",
-    "cx": 352,
-    "cy": 172,
-    "cs": 199,
-    "w": 1024,
-    "h": 683,
     "tags": ["fox"]
 }, {
     "rx": 27,

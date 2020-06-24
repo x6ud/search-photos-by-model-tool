@@ -406,17 +406,6 @@ export default [{
     "h": 576,
     "tags": ["tiger"]
 }, {
-    "rx": 73,
-    "ry": 51,
-    "rz": 4,
-    "url": "https://farm4.static.flickr.com/3597/3459973091_f8124a0e79_b.jpg",
-    "cx": 544,
-    "cy": 0,
-    "cs": 237,
-    "w": 1024,
-    "h": 683,
-    "tags": ["tiger"]
-}, {
     "rx": 28,
     "ry": -6,
     "rz": 6,

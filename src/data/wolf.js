@@ -65,17 +65,6 @@ export default [{
     "h": 768,
     "tags": ["wolf"]
 }, {
-    "rx": 31,
-    "ry": -2,
-    "rz": -5,
-    "url": "https://farm6.static.flickr.com/5601/15613553451_914e9c70ce_b.jpg",
-    "cx": 120,
-    "cy": 110,
-    "cs": 584,
-    "w": 820,
-    "h": 1024,
-    "tags": ["wolf"]
-}, {
     "rx": 39,
     "ry": 0,
     "rz": -17,
@@ -1537,17 +1526,6 @@ export default [{
     "cs": 550,
     "w": 1024,
     "h": 696,
-    "tags": ["wolf"]
-}, {
-    "rx": -87,
-    "ry": -7,
-    "rz": -81,
-    "url": "https://farm8.static.flickr.com/7485/27027238910_7203dd8c30_b.jpg",
-    "cx": 201,
-    "cy": 50,
-    "cs": 323,
-    "w": 819,
-    "h": 1024,
     "tags": ["wolf"]
 }, {
     "rx": 48,

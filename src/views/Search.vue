@@ -62,9 +62,12 @@
                             Special Thanks: <a href="https://github.com/xrabohrok" target="_blank">xrabohrok</a>
                             - Thank you for helping improve this tool!
                         </div>
-                        <div>Latest update: 2020-01-17</div>
+                        <div>Latest update: 2020-06-24</div>
                         <div>
                             <a href="https://github.com/x6ud/x6ud.github.io/issues" target="_blank">Create an issue</a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/x6ud/search-photos-by-model-tool" target="_blank">Source</a>
                         </div>
                         <div>
                             <a href="https://ko-fi.com/x6udpngx" target="_blank">
@@ -106,7 +109,7 @@
 
     import models from '../models'
 
-    import {degEulerToQuaternion, distance} from "../quaternion";
+    import {degEulerToQuaternion, distance} from "../utils/quaternion";
 
     export default {
         components: {ModelViewer, ImageThumb, ImageViewer},

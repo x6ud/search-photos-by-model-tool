@@ -901,17 +901,6 @@ export default [{
     "h": 1024,
     "tags": ["dog", "german shepherd"]
 }, {
-    "rx": 6,
-    "ry": 2,
-    "rz": -6,
-    "url": "https://farm5.static.flickr.com/4112/5092659756_1712323f3f_b.jpg",
-    "cx": 164,
-    "cy": 63,
-    "cs": 587,
-    "w": 1024,
-    "h": 768,
-    "tags": ["dog", "german shepherd"]
-}, {
     "rx": 35,
     "ry": 10,
     "rz": -4,
@@ -1075,17 +1064,6 @@ export default [{
     "cs": 254,
     "w": 685,
     "h": 1024,
-    "tags": ["dog", "german shepherd"]
-}, {
-    "rx": 19,
-    "ry": 35,
-    "rz": -6,
-    "url": "https://farm5.static.flickr.com/4104/5095288777_b36f9a8ee3_b.jpg",
-    "cx": 177,
-    "cy": 0,
-    "cs": 469,
-    "w": 720,
-    "h": 540,
     "tags": ["dog", "german shepherd"]
 }, {
     "rx": 30,
@@ -1506,17 +1484,6 @@ export default [{
     "h": 768,
     "tags": ["dog", "german shepherd"]
 }, {
-    "rx": 17,
-    "ry": -13,
-    "rz": 6,
-    "url": "https://farm8.static.flickr.com/7644/26566453034_3f3661544b_b.jpg",
-    "cx": 279,
-    "cy": 144,
-    "cs": 709,
-    "w": 1024,
-    "h": 1024,
-    "tags": ["dog", "german shepherd"]
-}, {
     "rx": 49,
     "ry": -4,
     "rz": 0,
@@ -1682,17 +1649,6 @@ export default [{
     "h": 1024,
     "tags": ["dog", "german shepherd"]
 }, {
-    "rx": 22,
-    "ry": 11,
-    "rz": -10,
-    "url": "https://farm4.static.flickr.com/3872/14473233794_5270214be8_b.jpg",
-    "cx": 632,
-    "cy": 198,
-    "cs": 188,
-    "w": 1024,
-    "h": 686,
-    "tags": ["dog", "german shepherd"]
-}, {
     "rx": 20,
     "ry": 144,
     "rz": 0,
@@ -1724,17 +1680,6 @@ export default [{
     "cs": 731,
     "w": 1024,
     "h": 731,
-    "tags": ["dog", "german shepherd"]
-}, {
-    "rx": -17,
-    "ry": -65,
-    "rz": -25,
-    "url": "https://farm3.static.flickr.com/2903/14473122424_0b56a9e876_b.jpg",
-    "cx": 305,
-    "cy": 252,
-    "cs": 191,
-    "w": 1024,
-    "h": 768,
     "tags": ["dog", "german shepherd"]
 }, {
     "rx": -14,

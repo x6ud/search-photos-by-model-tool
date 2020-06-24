@@ -65,17 +65,6 @@ export default [{
     "h": 654,
     "tags": ["cattle"]
 }, {
-    "rx": 0,
-    "ry": 12,
-    "rz": 0,
-    "url": "https://farm4.static.flickr.com/3322/3599953407_5e0558f7e0_b.jpg",
-    "cx": 105,
-    "cy": 0,
-    "cs": 669,
-    "w": 1024,
-    "h": 680,
-    "tags": ["cattle"]
-}, {
     "rx": 26,
     "ry": 1,
     "rz": 0,
@@ -281,17 +270,6 @@ export default [{
     "cx": 181,
     "cy": 0,
     "cs": 768,
-    "w": 1024,
-    "h": 768,
-    "tags": ["cattle"]
-}, {
-    "rx": 68,
-    "ry": 24,
-    "rz": -42,
-    "url": "https://farm5.static.flickr.com/4777/39993428965_5b673ab2b7_b.jpg",
-    "cx": 623,
-    "cy": 352,
-    "cs": 238,
     "w": 1024,
     "h": 768,
     "tags": ["cattle"]
@@ -1099,17 +1077,6 @@ export default [{
     "h": 682,
     "tags": ["cattle"]
 }, {
-    "rx": 35,
-    "ry": 6,
-    "rz": -6,
-    "url": "https://farm4.static.flickr.com/3852/14164596078_02262fac56_b.jpg",
-    "cx": 81,
-    "cy": 0,
-    "cs": 879,
-    "w": 1024,
-    "h": 879,
-    "tags": ["cattle"]
-}, {
     "rx": 43,
     "ry": 18,
     "rz": -26,
@@ -1341,28 +1308,6 @@ export default [{
     "h": 1024,
     "tags": ["cattle"]
 }, {
-    "rx": 71,
-    "ry": -24,
-    "rz": 23,
-    "url": "https://farm8.static.flickr.com/7155/6549384291_ddd1396526_b.jpg",
-    "cx": 533,
-    "cy": 249,
-    "cs": 377,
-    "w": 1024,
-    "h": 687,
-    "tags": ["cattle"]
-}, {
-    "rx": -29,
-    "ry": 153,
-    "rz": 9,
-    "url": "https://farm4.static.flickr.com/3099/2856570225_94b0494069_b.jpg",
-    "cx": 341,
-    "cy": 330,
-    "cs": 176,
-    "w": 1024,
-    "h": 685,
-    "tags": ["cattle"]
-}, {
     "rx": 64,
     "ry": -13,
     "rz": 12,
@@ -1416,17 +1361,6 @@ export default [{
     "cs": 575,
     "w": 1024,
     "h": 731,
-    "tags": ["cattle"]
-}, {
-    "rx": 70,
-    "ry": -50,
-    "rz": 56,
-    "url": "https://farm1.static.flickr.com/929/41615400241_e3acae0668_b.jpg",
-    "cx": 424,
-    "cy": 168,
-    "cs": 218,
-    "w": 1024,
-    "h": 683,
     "tags": ["cattle"]
 }, {
     "rx": 38,

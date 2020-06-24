@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import getFlickrId from '../get-flickr-id'
+    import getFlickrId from '../utils/get-flickr-id'
 
     /**
      * Show full screen large image

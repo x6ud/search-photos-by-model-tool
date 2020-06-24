@@ -341,17 +341,6 @@ export default [{
     "tags": ["leopard"]
 }, {
     "rx": 30,
-    "ry": 7,
-    "rz": -10,
-    "url": "https://farm8.static.flickr.com/7862/47132316782_56f93b064f_b.jpg",
-    "cx": 692,
-    "cy": 147,
-    "cs": 175,
-    "w": 1024,
-    "h": 683,
-    "tags": ["leopard"]
-}, {
-    "rx": 30,
     "ry": -4,
     "rz": 0,
     "url": "https://farm1.static.flickr.com/941/43523058982_21347633e3_b.jpg",
@@ -998,17 +987,6 @@ export default [{
     "cs": 406,
     "w": 855,
     "h": 1024,
-    "tags": ["leopard"]
-}, {
-    "rx": 45,
-    "ry": 17,
-    "rz": 0,
-    "url": "https://farm3.static.flickr.com/2694/4020079507_9cfd74fd9e_b.jpg",
-    "cx": 233,
-    "cy": 99,
-    "cs": 406,
-    "w": 1024,
-    "h": 680,
     "tags": ["leopard"]
 }, {
     "rx": 67,

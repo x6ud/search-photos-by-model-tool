@@ -340,17 +340,6 @@ export default [{
     "h": 282,
     "tags": ["rabbit"]
 }, {
-    "rx": 74,
-    "ry": 18,
-    "rz": -34,
-    "url": "https://farm8.static.flickr.com/7344/8895919894_5fa6d1941e_b.jpg",
-    "cx": 470,
-    "cy": 261,
-    "cs": 227,
-    "w": 1023,
-    "h": 681,
-    "tags": ["rabbit"]
-}, {
     "rx": 88,
     "ry": 59,
     "rz": -83,

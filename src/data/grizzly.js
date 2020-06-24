@@ -780,17 +780,6 @@ export default [{
     "h": 768,
     "tags": ["bear", "grizzly"]
 }, {
-    "rx": 55,
-    "ry": -55,
-    "rz": 23,
-    "url": "https://farm3.static.flickr.com/2460/32208845484_1bd565cf3c_b.jpg",
-    "cx": 114,
-    "cy": 0,
-    "cs": 545,
-    "w": 1024,
-    "h": 683,
-    "tags": ["bear", "grizzly"]
-}, {
     "rx": 49,
     "ry": -45,
     "rz": 25,
@@ -1022,17 +1011,6 @@ export default [{
     "h": 684,
     "tags": ["bear", "grizzly"]
 }, {
-    "rx": 34,
-    "ry": 42,
-    "rz": -14,
-    "url": "https://farm9.static.flickr.com/8490/8224625310_f282c20d3e_b.jpg",
-    "cx": 238,
-    "cy": 89,
-    "cs": 548,
-    "w": 1024,
-    "h": 768,
-    "tags": ["bear", "grizzly"]
-}, {
     "rx": 35,
     "ry": -33,
     "rz": 18,
@@ -1075,17 +1053,6 @@ export default [{
     "cs": 809,
     "w": 1024,
     "h": 809,
-    "tags": ["bear", "grizzly"]
-}, {
-    "rx": 42,
-    "ry": 10,
-    "rz": -10,
-    "url": "https://farm6.static.flickr.com/5334/9398086370_7104f15c5c_b.jpg",
-    "cx": 472,
-    "cy": 208,
-    "cs": 290,
-    "w": 1024,
-    "h": 683,
     "tags": ["bear", "grizzly"]
 }, {
     "rx": 33,

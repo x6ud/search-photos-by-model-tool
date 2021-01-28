@@ -1,99 +1,40 @@
 <template>
-    <div class="wrapper" :style="{'z-index': zIndex}">
-        <div class="modal"
-             :style="{'z-index': zIndex}"
+    <div class="image-viewer-mask">
+        <div class="image-viewer"
              v-if="show"
              @click.self="close"
         >
-            <img :src="image" alt="" :style="imgStyle">
-            <a v-if="flickrLink" :href="flickrLink" class="flickr-link" target="_blank">Click here for more information about this picture</a>
+            <img :src="imageUrl" alt="" :style="imgStyle">
+
             <div class="btn-close" @click="close">
                 <a-icon type="close"/>
             </div>
+
+            <a-button @click="openAuthorLink"
+                      size="small"
+                      class="btn-source"
+                      v-if="flickrAuthorLink"
+            >
+                Click here for more information about this picture
+            </a-button>
         </div>
     </div>
 </template>
 
-<script>
-    import getFlickrId from '../utils/get-flickr-id'
-
-    /**
-     * Show full screen large image
-     */
-    export default {
-        props: {
-            show: Boolean,
-            // image url
-            image: String,
-            zIndex: {
-                type: Number,
-                default: 1000
-            },
-            // flip the image horizontally
-            flip: {
-                type: Boolean,
-                default: false
-            }
-        },
-        data() {
-            return {
-                width: 0,
-                height: 0,
-                scale: 1
-            };
-        },
-        watch: {
-            image(url) {
-                this.width = 0;
-                this.height = 0;
-                this.scale = 1;
-                const image = new Image();
-                image.onload = () => {
-                    this.width = image.width;
-                    this.height = image.height;
-
-                    const maxWidth = document.documentElement.clientWidth * 0.9,
-                        maxHeight = document.documentElement.clientHeight * 0.9;
-                    this.zoom = Math.min(
-                        maxWidth / image.width,
-                        maxHeight / image.height,
-                        1
-                    );
-                };
-                image.src = url;
-            }
-        },
-        computed: {
-            imgStyle() {
-                return {
-                    'margin-left': -(this.width / 2 | 0) + 'px',
-                    'margin-top': -(this.height / 2 | 0) + 'px',
-                    transform: `scaleX(${this.zoom * (this.flip ? -1 : 1)}) scaleY(${this.zoom})`
-                };
-            },
-            flickrLink() {
-                const id = getFlickrId(this.image);
-                return id && `https://www.flickr.com/photo.gne?id=${id}`;
-            }
-        },
-        methods: {
-            close() {
-                this.$emit('update:show', false);
-            }
-        }
-    };
-</script>
+<script lang="ts" src="./ImageViewer.ts"></script>
 
 <style lang="scss" scoped>
-    .wrapper {
+    .image-viewer-mask {
         position: fixed;
+        z-index: 1000;
         left: 0;
         top: 0;
         max-width: 0;
         max-height: 0;
 
-        .modal {
+        .image-viewer {
             position: fixed;
+            z-index: 1000;
             left: 0;
             top: 0;
             right: 0;
@@ -137,6 +78,12 @@
                 vertical-align: middle;
                 border-radius: 100%;
                 background-color: rgba(0, 0, 0, 0.35);
+            }
+
+            .btn-source {
+                position: absolute;
+                top: 8px;
+                right: 40px;
             }
         }
     }

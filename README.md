@@ -25,6 +25,6 @@ npm run build
 4. Click the "Get One" button to get a photo.
 
 ## Adding models
-1. Put the .obj file into `public/assets/models`. It's better to keep files within 1MB. I use Blender and MeshLab to reduce the models.
+1. Put the .obj file into `static/models`. It's better to keep files within 1MB. I use Blender and MeshLab to reduce the models.
 
 2. Add model url and author link to `src/models.ts`.

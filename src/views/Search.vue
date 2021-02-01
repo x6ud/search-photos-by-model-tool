@@ -100,7 +100,9 @@
         </div>
 
         <image-viewer :show.sync="large.show"
-                      :image-url="large.imageUrl"/>
+                      :image-url="large.imageUrl"
+                      :flip="large.flip"
+        />
     </div>
 </template>
 

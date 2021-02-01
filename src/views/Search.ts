@@ -51,7 +51,8 @@ export default class Search extends Vue.extend({
             collapseSearchConditions: false,
             large: {
                 show: false,
-                imageUrl: ''
+                imageUrl: '',
+                flip: false
             }
         };
     },
@@ -94,6 +95,7 @@ export default class Search extends Vue.extend({
         },
         show(img: SearchResult) {
             this.large.imageUrl = img.url;
+            this.large.flip = img.flip;
             this.large.show = true;
         }
     }

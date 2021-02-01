@@ -163,10 +163,13 @@ export default class Editor extends Vue.extend({
         async getOne(indexStep: number) {
             for (; ;) {
                 if (await this.moveSearchWindow(this.search.currentIndex + indexStep)) {
-                    const imageUrl = this.search.result.photos[this.search.currentIndex].large;
+                    const imageUrl = this.search.result.photos[this.search.currentIndex]?.large || '';
                     const id = getFlickrId(imageUrl);
                     if (!(id && existedPhotoIds.has(id))) {
                         this.clip.imageUrl = imageUrl;
+                        break;
+                    }
+                    if (!id) {
                         break;
                     }
                 } else {

@@ -79,13 +79,13 @@ export default class Search extends Vue.extend({
     methods: {
         search() {
             let data = this.keyword ? this.data.filter(item => item.tags?.includes(this.keyword)) : this.data;
-            const direction = degEulerToQuaternion(this.model.rotateX, this.model.rotateY, this.model.rotateZ);
+            const direction = degEulerToQuaternion(this.model.rotateX + 180, this.model.rotateY + 180, this.model.rotateZ + 180);
             const result: SearchResult[] = data.map(item => {
                 const flip = item.ry * this.model.rotateY < 0; // flip the image horizontally if it can match better
                 const rx = item.rx;
                 const ry = flip ? -item.ry : item.ry;
                 const rz = flip ? -item.rz : item.rz;
-                const match = distance(direction, degEulerToQuaternion(rx, ry, rz));
+                const match = distance(direction, degEulerToQuaternion(rx + 180, ry + 180, rz + 180));
                 return {...item, flip, ry, rz, match};
             });
             // first 30 best results

@@ -1,4 +1,5 @@
 import alligator from './data/alligator.json'
+import bat from './data/bat.json'
 import cat from './data/cat.json'
 import cattle from './data/cattle.json'
 import cheetah from './data/cheetah.json'
@@ -28,6 +29,7 @@ import wolf from './data/wolf.json'
 
 export default [
     ...alligator,
+    ...bat,
     ...cat,
     ...cattle,
     ...cheetah,

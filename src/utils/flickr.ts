@@ -57,7 +57,7 @@ export type FlickrSearchResult = {
 
 export async function flickrSearch(
     apiKey: string,
-    tags: string,
+    keywords: string,
     perPage: number,
     page: number
 ): Promise<FlickrSearchResult> {
@@ -68,10 +68,9 @@ export async function flickrSearch(
         format: 'json',
         nojsoncallback: '1',
         license: '2,3,4,5,6,9', // all cc
-        tag_mode: 'all', // AND combination
         privacy_filter: '1', // public photos
         content_type: '1', // photos only
-        tags,
+        text: keywords,
         sort: 'relevance',
         per_page: Math.max(1, Math.min(500, perPage)) + '',
         page: page + '',

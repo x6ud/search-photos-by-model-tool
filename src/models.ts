@@ -20,14 +20,34 @@ const models: { name: string, path: string, origin: string }[] = [
         origin: 'https://sketchfab.com/openededinburgh'
     },
     {
+        name: 'Bear Skull',
+        path: './static/models/bear-skull.obj',
+        origin: 'https://sketchfab.com/geoffreymarchal'
+    },
+    {
+        name: 'Raccoon Skull',
+        path: './static/models/raccoon-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/raccoon-skull-4bec9f17661542269bfe2f66ebe42361'
+    },
+    {
+        name: 'Skunk Skull',
+        path: './static/models/skunk-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/skunk-skull-c82f5ecc8b5445828619cc6e8aea7457'
+    },
+    {
+        name: 'River Otter Skull',
+        path: './static/models/river-otter-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/river-otter-skull-c17e2cd117714da7a3592c1f13ec64ac'
+    },
+    {
         name: 'Opossum Skull',
         path: './static/models/opossum-skull.obj',
         origin: 'https://www.thingiverse.com/Spfaff1994/designs'
     },
     {
-        name: 'Bear Skull',
-        path: './static/models/bear-skull.obj',
-        origin: 'https://sketchfab.com/geoffreymarchal'
+        name: 'Kangaroo Skull',
+        path: './static/models/kangaroo-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/kangaroowallaby-skull-62a3f3fc37064f8cb0eb839f7d03e70f'
     },
     {
         name: 'Horse Skull',
@@ -48,6 +68,11 @@ const models: { name: string, path: string, origin: string }[] = [
         name: 'Mule Deer Skull',
         path: './static/models/mule-deer-skull.obj',
         origin: 'https://sketchfab.com/uviclib'
+    },
+    {
+        name: 'Elephant Skull',
+        path: './static/models/elephant-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/african-forest-elephant-for-mobile-devices-320fd7ff1d7e450189333dc270cf12ae'
     },
     {
         name: 'Pig Skull',
@@ -88,6 +113,11 @@ const models: { name: string, path: string, origin: string }[] = [
         name: 'Iguana Skull (for lizards)',
         path: './static/models/iguana-skull.obj',
         origin: 'https://sketchfab.com/3d-models/green-iguana-skull-ouvc-10677-1427f887e0fd41eb9c9c97e07c3610e3'
+    },
+    {
+        name: 'Frog Skull',
+        path: './static/models/frog-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/frog-skull-9c491d45c73e49df8cd4277d3dc44ade'
     },
     {
         name: 'Python Skull',

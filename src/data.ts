@@ -21,8 +21,10 @@ import lizard from './data/lizard.json'
 import opossum from './data/opossum.json'
 import pig from './data/pig.json'
 import rabbit from './data/rabbit.json'
+import raccoon from './data/raccoon.json'
 import rat from './data/rat.json'
 import raven from './data/raven.json'
+import riverOtter from './data/river-otter.json'
 import snake from './data/snake.json'
 import tiger from './data/tiger.json'
 import wolf from './data/wolf.json'
@@ -51,8 +53,10 @@ export default [
     ...opossum,
     ...pig,
     ...rabbit,
+    ...raccoon,
     ...rat,
     ...raven,
+    ...riverOtter,
     ...snake,
     ...tiger,
     ...wolf,

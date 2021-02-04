@@ -8,6 +8,7 @@
                             style="flex: 1 1; min-width: 0;">
                         <a-select style="width: 100%;"
                                   placeholder="any"
+                                  show-search
                                   v-model="keyword">
                             <a-select-option :key="''">any</a-select-option>
                             <a-select-option v-for="tag in tags" :key="tag">{{tag}}</a-select-option>
@@ -18,7 +19,9 @@
 
                 <h4>Direction: (skull type does not affect search results)</h4>
                 <div class="row">
-                    <a-select v-model="model.url" style="width: 100%;">
+                    <a-select v-model="model.url"
+                              show-search
+                              style="width: 100%;">
                         <a-select-option v-for="option in models"
                                          :key="option.path"
                                          :value="option.path">
@@ -66,7 +69,7 @@
                         Special Thanks: <a href="https://github.com/xrabohrok" target="_blank">xrabohrok</a>
                         - Thank you for helping improve this tool!
                     </div>
-                    <div>Latest update: 2021-02-03</div>
+                    <div>Latest update: 2021-02-04</div>
                     <div>
                         <a href="https://github.com/x6ud/x6ud.github.io/issues" target="_blank">Leave a message</a>
                     </div>

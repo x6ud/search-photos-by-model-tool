@@ -32,11 +32,11 @@ const LOCAL_STORAGE_KEY__FLICKER_API_KEY = 'flicker-api-key';
 const api = Axios.create({baseURL: '/server'});
 
 async function loadFileList(): Promise<string[]> {
-    return (await api.get('/dataList')).data as string[];
+    return (await api.get('/dataList')).data.map((filename: string) => filename.slice(0, filename.lastIndexOf('.json'))) as string[];
 }
 
 async function loadJsonFile(filename: string): Promise<DataRecord[]> {
-    return (await api.get('/data', {params: {name: filename + '.json'}})).data as DataRecord[];
+    return (await api.get('/data', {params: {name: filename}})).data as DataRecord[];
 }
 
 async function saveJsonFile(filename: string, data: any) {
@@ -44,7 +44,7 @@ async function saveJsonFile(filename: string, data: any) {
         '/data',
         JSON.stringify(data),
         {
-            params: {name: filename + '.json'},
+            params: {name: filename},
             headers: {'Content-Type': 'text/plain'}
         }
     );
@@ -112,7 +112,7 @@ export default class Editor extends Vue.extend({
         },
         async 'file.filename'(filename) {
             if (this.file.files.includes(filename)) {
-                this.file.data = await loadJsonFile(filename);
+                this.file.data = await loadJsonFile(filename + '.json');
                 this.file.selectedIndex = -1;
                 this.clip.tags = [];
             }
@@ -141,7 +141,7 @@ export default class Editor extends Vue.extend({
     },
     async mounted() {
         this.search.apiKey = localStorage.getItem(LOCAL_STORAGE_KEY__FLICKER_API_KEY) || '';
-        this.file.files = (await loadFileList()).map((filename: string) => filename.slice(0, filename.lastIndexOf('.json')));
+        this.file.files = (await loadFileList());
     },
     methods: {
         async searchFlickr() {
@@ -277,7 +277,7 @@ export default class Editor extends Vue.extend({
             }
         },
         async saveJson() {
-            await saveJsonFile(this.file.filename, this.file.data);
+            await saveJsonFile(this.file.filename +'.json', this.file.data);
             message.success('Saved.');
         },
         async removeInvalid() {

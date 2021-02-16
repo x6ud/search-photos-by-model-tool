@@ -281,28 +281,41 @@ export default class Editor extends Vue.extend({
             message.success('Saved.');
         },
         async removeInvalid() {
-            const invalid: DataRecord[] = [];
-            this.check.progress = 0;
-            this.check.total = this.file.data.length;
-            if (this.check.total < 1) {
-                return;
-            }
-            this.check.checking = true;
-            const promises = this.file.data.map(async item => {
-                if (!(await isImageExists(item.url))) {
-                    invalid.push(item);
-                }
-                this.check.progress += 1;
-                if (this.check.progress === this.check.total) {
-                    this.check.checking = false;
-                }
-            });
-            await Promise.all(promises);
-            if (invalid.length) {
-                this.file.data = this.file.data.filter(item => !invalid.includes(item));
-            }
-            message.success(`${invalid.length} removed.`);
+            auditPictures(this, this.file.filename)
         }
     }
 }) {
+}
+
+async function auditPictures(context:Editor, filename:string, updateContext:Boolean = true): Promise<DataRecord[]>{
+    const invalid: DataRecord[] = [];
+
+    var content = await loadJsonFile(filename + '.json')
+
+    context.check.progress = 0;
+    context.check.total = content.length;
+    if (context.check.total < 1) {
+        return [] as DataRecord[];
+    }
+    context.check.checking = true;
+    const promises = content.map(async item => {
+        if (!(await isImageExists(item.url))) {
+            invalid.push(item);
+        }
+
+        if(updateContext){
+            context.check.progress += 1;
+            if (context.check.progress === context.check.total) {
+                context.check.checking = false;
+            }
+        }
+    });
+    await Promise.all(promises);
+
+    if (invalid.length && updateContext) {
+        context.file.data = content.filter(item => !invalid.includes(item));
+    }
+    message.success(`${filename} : ${invalid.length} removed.`);
+    
+    return invalid;
 }

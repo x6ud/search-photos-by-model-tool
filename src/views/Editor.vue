@@ -157,6 +157,18 @@
                     </template>
                 </a-button>
             </div>
+            <div class="row">
+                <a-button @click="auditAll" style="width: 100%"
+                          :disabled="check.checking"
+                >
+                    <template v-if="check.checking">
+                        {{check.progress}} / {{check.total}}
+                    </template>
+                    <template v-else>
+                        Check all animal lists for missing Images
+                    </template>
+                </a-button>
+            </div>
         </div>
     </div>
 </template>

@@ -32,11 +32,11 @@ const LOCAL_STORAGE_KEY__FLICKER_API_KEY = 'flicker-api-key';
 const api = Axios.create({baseURL: '/server'});
 
 async function loadFileList(): Promise<string[]> {
-    return (await api.get('/dataList')).data as string[];
+    return (await api.get('/dataList')).data.map((filename: string) => filename.slice(0, filename.lastIndexOf('.json'))) as string[];
 }
 
 async function loadJsonFile(filename: string): Promise<DataRecord[]> {
-    return (await api.get('/data', {params: {name: filename + '.json'}})).data as DataRecord[];
+    return (await api.get('/data', {params: {name: filename}})).data as DataRecord[];
 }
 
 async function saveJsonFile(filename: string, data: any) {
@@ -44,7 +44,7 @@ async function saveJsonFile(filename: string, data: any) {
         '/data',
         JSON.stringify(data),
         {
-            params: {name: filename + '.json'},
+            params: {name: filename},
             headers: {'Content-Type': 'text/plain'}
         }
     );
@@ -112,7 +112,7 @@ export default class Editor extends Vue.extend({
         },
         async 'file.filename'(filename) {
             if (this.file.files.includes(filename)) {
-                this.file.data = await loadJsonFile(filename);
+                this.file.data = await loadJsonFile(filename + '.json');
                 this.file.selectedIndex = -1;
                 this.clip.tags = [];
             }
@@ -141,7 +141,7 @@ export default class Editor extends Vue.extend({
     },
     async mounted() {
         this.search.apiKey = localStorage.getItem(LOCAL_STORAGE_KEY__FLICKER_API_KEY) || '';
-        this.file.files = (await loadFileList()).map((filename: string) => filename.slice(0, filename.lastIndexOf('.json')));
+        this.file.files = (await loadFileList());
     },
     methods: {
         async searchFlickr() {
@@ -277,32 +277,54 @@ export default class Editor extends Vue.extend({
             }
         },
         async saveJson() {
-            await saveJsonFile(this.file.filename, this.file.data);
+            await saveJsonFile(this.file.filename +'.json', this.file.data);
             message.success('Saved.');
         },
         async removeInvalid() {
-            const invalid: DataRecord[] = [];
-            this.check.progress = 0;
-            this.check.total = this.file.data.length;
-            if (this.check.total < 1) {
-                return;
+            auditPictures(this, this.file.filename)
+        },
+        async auditAll(){
+            var allFiles = await loadFileList();
+            for(const f of allFiles){
+                var newContent = await auditPictures(this, f, false);
+                saveJsonFile(f + '.json', newContent);
             }
-            this.check.checking = true;
-            const promises = this.file.data.map(async item => {
-                if (!(await isImageExists(item.url))) {
-                    invalid.push(item);
-                }
-                this.check.progress += 1;
-                if (this.check.progress === this.check.total) {
-                    this.check.checking = false;
-                }
-            });
-            await Promise.all(promises);
-            if (invalid.length) {
-                this.file.data = this.file.data.filter(item => !invalid.includes(item));
-            }
-            message.success(`${invalid.length} removed.`);
+
         }
     }
 }) {
+}
+
+async function auditPictures(context:Editor, filename:string, updateContext:Boolean = true): Promise<DataRecord[]>{
+    const invalid: DataRecord[] = [];
+
+    var content = await loadJsonFile(filename + '.json')
+
+    context.check.progress = 0;
+    context.check.total = content.length;
+    if (context.check.total < 1) {
+        return content;
+    }
+    context.check.checking = true;
+    const promises = content.map(async item => {
+        if (!(await isImageExists(item.url))) {
+            invalid.push(item);
+        }
+
+        context.check.progress += 1;
+        if (context.check.progress === context.check.total) {
+            context.check.checking = false;
+        }
+        
+    });
+    await Promise.all(promises);
+
+    var newContent = content.filter(item => !invalid.includes(item));
+
+    if (invalid.length && updateContext) {
+        context.file.data = newContent;
+    }
+    message.success(`${filename} : ${invalid.length} removed.`);
+
+    return newContent;
 }

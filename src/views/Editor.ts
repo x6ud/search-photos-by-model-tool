@@ -282,6 +282,14 @@ export default class Editor extends Vue.extend({
         },
         async removeInvalid() {
             auditPictures(this, this.file.filename)
+        },
+        async auditAll(){
+            var allFiles = await loadFileList();
+            for(const f of allFiles){
+                var newContent = await auditPictures(this, f, false);
+                saveJsonFile(f + '.json', newContent);
+            }
+
         }
     }
 }) {
@@ -295,7 +303,7 @@ async function auditPictures(context:Editor, filename:string, updateContext:Bool
     context.check.progress = 0;
     context.check.total = content.length;
     if (context.check.total < 1) {
-        return [] as DataRecord[];
+        return content;
     }
     context.check.checking = true;
     const promises = content.map(async item => {
@@ -303,19 +311,20 @@ async function auditPictures(context:Editor, filename:string, updateContext:Bool
             invalid.push(item);
         }
 
-        if(updateContext){
-            context.check.progress += 1;
-            if (context.check.progress === context.check.total) {
-                context.check.checking = false;
-            }
+        context.check.progress += 1;
+        if (context.check.progress === context.check.total) {
+            context.check.checking = false;
         }
+        
     });
     await Promise.all(promises);
 
+    var newContent = content.filter(item => !invalid.includes(item));
+
     if (invalid.length && updateContext) {
-        context.file.data = content.filter(item => !invalid.includes(item));
+        context.file.data = newContent;
     }
     message.success(`${filename} : ${invalid.length} removed.`);
-    
-    return invalid;
+
+    return newContent;
 }

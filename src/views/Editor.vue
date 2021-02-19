@@ -146,26 +146,28 @@
                 </div>
             </div>
             <div class="row">
-                <a-button @click="removeInvalid" style="width: 100%"
+                <a-button @click="auditCurrentList" style="width: 100%"
                           :disabled="check.checking"
+                          title="Remove missing images from current list"
                 >
-                    <template v-if="check.checking">
+                    <template v-if="check.checking && check.filename === file.filename">
                         {{check.progress}} / {{check.total}}
                     </template>
                     <template v-else>
-                        Remove Invalid Images
+                        Audit Current List
                     </template>
                 </a-button>
             </div>
             <div class="row">
                 <a-button @click="auditAll" style="width: 100%"
                           :disabled="check.checking"
+                          title="Remove missing images from all files"
                 >
                     <template v-if="check.checking">
-                        {{check.progress}} / {{check.total}}
+                        {{check.filename}}: {{check.progress}} / {{check.total}}
                     </template>
                     <template v-else>
-                        Check all animal lists for missing Images
+                        Audit All Files
                     </template>
                 </a-button>
             </div>

@@ -102,7 +102,8 @@ export default class Editor extends Vue.extend({
             check: {
                 checking: false,
                 progress: 0,
-                total: 0
+                total: 0,
+                filename: ''
             }
         };
     },
@@ -277,54 +278,44 @@ export default class Editor extends Vue.extend({
             }
         },
         async saveJson() {
-            await saveJsonFile(this.file.filename +'.json', this.file.data);
+            await saveJsonFile(this.file.filename + '.json', this.file.data);
             message.success('Saved.');
         },
-        async removeInvalid() {
-            auditPictures(this, this.file.filename)
+        async auditCurrentList() {
+            this.file.data = await this.auditPictures(this.file.data, this.file.filename);
         },
-        async auditAll(){
-            var allFiles = await loadFileList();
-            for(const f of allFiles){
-                var newContent = await auditPictures(this, f, false);
-                saveJsonFile(f + '.json', newContent);
+        async auditAll() {
+            const allFiles = await loadFileList();
+            for (const filename of allFiles) {
+                const content = await loadJsonFile(filename + '.json');
+                const newContent = await this.auditPictures(content, filename);
+                if (content.length !== newContent.length) {
+                    await saveJsonFile(filename + '.json', newContent);
+                }
             }
-
+        },
+        async auditPictures(content: DataRecord[], filename: string): Promise<DataRecord[]> {
+            const invalid: DataRecord[] = [];
+            this.check.filename = filename;
+            this.check.progress = 0;
+            this.check.total = content.length;
+            if (this.check.total < 1) {
+                return content;
+            }
+            this.check.checking = true;
+            const promises = content.map(async item => {
+                if (!(await isImageExists(item.url))) {
+                    invalid.push(item);
+                }
+                this.check.progress += 1;
+                if (this.check.progress === this.check.total) {
+                    this.check.checking = false;
+                }
+            });
+            await Promise.all(promises);
+            message.success(`${filename}: ${invalid.length} removed.`);
+            return content.filter(item => !invalid.includes(item));
         }
     }
 }) {
-}
-
-async function auditPictures(context:Editor, filename:string, updateContext:Boolean = true): Promise<DataRecord[]>{
-    const invalid: DataRecord[] = [];
-
-    var content = await loadJsonFile(filename + '.json')
-
-    context.check.progress = 0;
-    context.check.total = content.length;
-    if (context.check.total < 1) {
-        return content;
-    }
-    context.check.checking = true;
-    const promises = content.map(async item => {
-        if (!(await isImageExists(item.url))) {
-            invalid.push(item);
-        }
-
-        context.check.progress += 1;
-        if (context.check.progress === context.check.total) {
-            context.check.checking = false;
-        }
-        
-    });
-    await Promise.all(promises);
-
-    var newContent = content.filter(item => !invalid.includes(item));
-
-    if (invalid.length && updateContext) {
-        context.file.data = newContent;
-    }
-    message.success(`${filename} : ${invalid.length} removed.`);
-
-    return newContent;
 }

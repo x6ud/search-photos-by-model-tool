@@ -85,6 +85,11 @@ const models: { name: string, path: string, origin: string }[] = [
         origin: 'https://www.thingiverse.com/scienceminer/about'
     },
     {
+        name: 'Squirrel Skull',
+        path: './static/models/squirrel-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/imnh-r-80-squirrel-cranium-a624d77bbfaa4c66957c78ce4ffe58d2'
+    },
+    {
         name: 'Rabbit Skull',
         path: './static/models/rabbit-skull.obj',
         origin: 'https://sketchfab.com/agancz'

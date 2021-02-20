@@ -75,6 +75,11 @@ const models: { name: string, path: string, origin: string }[] = [
         origin: 'https://sketchfab.com/3d-models/african-forest-elephant-for-mobile-devices-320fd7ff1d7e450189333dc270cf12ae'
     },
     {
+        name: 'Rhino Skull',
+        path: './static/models/rhino-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/rhinoceros-skull-dbee4f8f32fd4a96b5a021137dd4e2c6'
+    },
+    {
         name: 'Pig Skull',
         path: './static/models/pig-skull.obj',
         origin: 'https://sketchfab.com/geoffreymarchal'

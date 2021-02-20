@@ -7,6 +7,7 @@ import deer from './data/deer.json'
 import doberman from './data/doberman.json'
 import eagle from './data/eagle.json'
 import fox from './data/fox.json'
+import frog from './data/frog.json'
 import germanShepherd from './data/german-shepherd.json'
 import goat from './data/goat.json'
 import grizzly from './data/grizzly.json'
@@ -26,6 +27,7 @@ import rat from './data/rat.json'
 import raven from './data/raven.json'
 import riverOtter from './data/river-otter.json'
 import snake from './data/snake.json'
+import squirrel from './data/squirrel.json'
 import tiger from './data/tiger.json'
 import wolf from './data/wolf.json'
 
@@ -39,6 +41,7 @@ export default [
     ...doberman,
     ...eagle,
     ...fox,
+    ...frog,
     ...germanShepherd,
     ...goat,
     ...grizzly,
@@ -58,6 +61,7 @@ export default [
     ...raven,
     ...riverOtter,
     ...snake,
+    ...squirrel,
     ...tiger,
     ...wolf,
 ];

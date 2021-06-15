@@ -30,6 +30,11 @@ const models: { name: string, path: string, origin: string }[] = [
         origin: 'https://sketchfab.com/3d-models/raccoon-skull-4bec9f17661542269bfe2f66ebe42361'
     },
     {
+        name: 'Capybara Skull',
+        path: './static/models/capybara-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/capybara-skull-of-the-largest-living-rodent-77a788c945864ec39dca84a1f56601e4'
+    },
+    {
         name: 'Skunk Skull',
         path: './static/models/skunk-skull.obj',
         origin: 'https://sketchfab.com/3d-models/skunk-skull-c82f5ecc8b5445828619cc6e8aea7457'

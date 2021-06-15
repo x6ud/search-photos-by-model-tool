@@ -26,7 +26,9 @@ import rabbit from './data/rabbit.json'
 import raccoon from './data/raccoon.json'
 import rat from './data/rat.json'
 import raven from './data/raven.json'
+import rhino from './data/rhino.json'
 import riverOtter from './data/river-otter.json'
+import skunk from './data/skunk.json'
 import snake from './data/snake.json'
 import squirrel from './data/squirrel.json'
 import tiger from './data/tiger.json'
@@ -61,7 +63,9 @@ export default [
     ...raccoon,
     ...rat,
     ...raven,
+    ...rhino,
     ...riverOtter,
+    ...skunk,
     ...snake,
     ...squirrel,
     ...tiger,

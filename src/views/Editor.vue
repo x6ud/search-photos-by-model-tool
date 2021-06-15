@@ -4,6 +4,7 @@
             <div class="row">
                 <a-select v-model="model.url"
                           style="flex: 1 1; min-width: 0;"
+                          show-search
                 >
                     <a-select-option v-for="model in models"
                                      :key="model.path"
@@ -46,6 +47,7 @@
             <div class="row">
                 <a-select v-model="dataDistributionFilterTag"
                           style="flex: 1 1; min-width: 0"
+                          show-search
                 >
                     <a-select-option v-for="(num, tag) in tags" :key="tag">{{tag}} ({{num}})</a-select-option>
                 </a-select>

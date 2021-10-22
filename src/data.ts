@@ -1,6 +1,7 @@
 import africanWildDog from './data/african-wild-dog.json'
 import alligator from './data/alligator.json'
 import bat from './data/bat.json'
+import boar from './data/boar.json'
 import cat from './data/cat.json'
 import cattle from './data/cattle.json'
 import cheetah from './data/cheetah.json'
@@ -39,6 +40,7 @@ export default [
     ...africanWildDog,
     ...alligator,
     ...bat,
+    ...boar,
     ...cat,
     ...cattle,
     ...cheetah,

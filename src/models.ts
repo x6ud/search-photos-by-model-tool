@@ -7,7 +7,7 @@ const models: { name: string, path: string, origin: string }[] = [
     {
         name: 'Hyena Skull',
         path: './static/models/hyena-skull.obj',
-        origin: 'https://www.myminifactory.com/users/Digimorph'
+        origin: 'https://cults3d.com/en/3d-model/various/parahyaena-brunnea-brown-hyena-skull'
     },
     {
         name: 'Lion Skull (for big cats)',

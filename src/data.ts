@@ -12,6 +12,7 @@ import frog from './data/frog.json'
 import germanShepherd from './data/german-shepherd.json'
 import goat from './data/goat.json'
 import grizzly from './data/grizzly.json'
+import hare from './data/hare.json'
 import hawk from './data/hawk.json'
 import horse from './data/horse.json'
 import husky from './data/husky.json'
@@ -49,6 +50,7 @@ export default [
     ...germanShepherd,
     ...goat,
     ...grizzly,
+    ...hare,
     ...hawk,
     ...horse,
     ...husky,

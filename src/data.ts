@@ -1,5 +1,6 @@
 import africanWildDog from './data/african-wild-dog.json'
 import alligator from './data/alligator.json'
+import badger from './data/badger.json'
 import bat from './data/bat.json'
 import boar from './data/boar.json'
 import cat from './data/cat.json'
@@ -23,6 +24,7 @@ import labrador from './data/labrador.json'
 import leopard from './data/leopard.json'
 import lion from './data/lion.json'
 import lizard from './data/lizard.json'
+import lynx from './data/lynx.json'
 import opossum from './data/opossum.json'
 import pig from './data/pig.json'
 import rabbit from './data/rabbit.json'
@@ -40,6 +42,7 @@ import wolf from './data/wolf.json'
 export default [
     ...africanWildDog,
     ...alligator,
+    ...badger,
     ...bat,
     ...boar,
     ...cat,
@@ -63,6 +66,7 @@ export default [
     ...leopard,
     ...lion,
     ...lizard,
+    ...lynx,
     ...opossum,
     ...pig,
     ...rabbit,

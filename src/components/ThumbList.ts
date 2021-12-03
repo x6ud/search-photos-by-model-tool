@@ -27,7 +27,7 @@ export default class ThumbList extends Vue.extend({
     watch: {
         active(index) {
             this.$nextTick(() => {
-                if (index >= 0 && (index < this.firstVisibleIndex || index > this.lastVisibleIndex)) {
+                if (index >= 0 && (index <= this.firstVisibleIndex || index >= this.lastVisibleIndex)) {
                     const scroll = this.$refs.scroll as HTMLDivElement;
                     if (scroll) {
                         scroll.scrollTop = index * (THUMB_SIZE + THUMB_MARGIN);

@@ -153,19 +153,18 @@ export default class ModelViewer extends Vue.extend({
                     }
                 });
 
-                // center
                 const mesh = group.children[0];
-                const box = new THREE.Box3().setFromObject(group);
-
-                const center = new THREE.Vector3();
-                box.getCenter(center);
-                mesh.position.set(-center.x, -center.y, -center.z);
 
                 // resize
                 const size = new THREE.Vector3();
-                box.getSize(size);
+                new THREE.Box3().setFromObject(group).getSize(size);
                 const scale = this.preferSize / Math.max(size.x, size.y, size.z);
                 mesh.scale.set(scale, scale, scale);
+
+                // center
+                const center = new THREE.Vector3();
+                new THREE.Box3().setFromObject(group).getCenter(center);
+                mesh.position.set(-center.x, -center.y, -center.z);
 
                 group.rotation.set(this.rotateX * DEG_2_RAD, this.rotateY * DEG_2_RAD, this.rotateZ * DEG_2_RAD);
 

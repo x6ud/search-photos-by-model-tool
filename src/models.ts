@@ -32,14 +32,14 @@ const models: Model[] = [
         origin: 'https://sketchfab.com/3d-models/raccoon-skull-4bec9f17661542269bfe2f66ebe42361'
     },
     {
-        name: 'Capybara Skull',
-        path: './static/models/capybara-skull.obj',
-        origin: 'https://sketchfab.com/3d-models/capybara-skull-of-the-largest-living-rodent-77a788c945864ec39dca84a1f56601e4'
-    },
-    {
         name: 'Skunk Skull',
         path: './static/models/skunk-skull.obj',
         origin: 'https://sketchfab.com/3d-models/skunk-skull-c82f5ecc8b5445828619cc6e8aea7457'
+    },
+    {
+        name: 'Wolverine Skull',
+        path: './static/models/wolverine-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/wolverine-skull-98c8a4ac83604d1384990916da2dd440'
     },
     {
         name: 'River Otter Skull',
@@ -90,6 +90,11 @@ const models: Model[] = [
         name: 'Pig Skull',
         path: './static/models/pig-skull.obj',
         origin: 'https://sketchfab.com/geoffreymarchal'
+    },
+    {
+        name: 'Capybara Skull',
+        path: './static/models/capybara-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/capybara-skull-of-the-largest-living-rodent-77a788c945864ec39dca84a1f56601e4'
     },
     {
         name: 'Rat Skull',

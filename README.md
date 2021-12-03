@@ -20,9 +20,7 @@ npm run build
 
 2. Run the project with `npm run serve`.
 
-3. Open `/#/editor`, paste your Flickr API key into the textbox requesting it.
-
-4. Click the "Get One" button to get a photo.
+3. Open `/#/editor`, paste your API key into the textbox requesting it.
 
 ## Adding models
 1. Put the .obj file into `static/models`. It's better to keep files within 1MB. I use Blender and MeshLab to reduce the models.

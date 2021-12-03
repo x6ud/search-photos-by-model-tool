@@ -1,35 +1,18 @@
-import Vue from 'vue'
+import Vue from 'vue';
+import ImageThumb from '../components/ImageThumb.vue';
+import ImageViewer from '../components/ImageViewer.vue';
 
-import ModelViewer from '../components/ModelViewer.vue'
-import ImageThumb from '../components/ImageThumb.vue'
-import ImageViewer from '../components/ImageViewer.vue'
+import ModelViewer from '../components/ModelViewer.vue';
 
-import {degEulerToQuaternion, distance} from '../utils/quaternion'
+import models from '../models';
+import {DataRecord, getPhotoId} from '../utils/photo';
 
-import models from '../models'
+import {degEulerToQuaternion, distance} from '../utils/quaternion';
 
-type DataRecord = {
-    rx: number,
-    ry: number,
-    rz: number,
-    url: string,
-    cx: number,
-    cy: number,
-    cs: number,
-    w: number,
-    h: number,
-    tags: string[]
-};
 type SearchResult = {
-    url: string;
-    w: number;
-    h: number;
     flip: boolean;
-    cx: number;
-    cy: number;
-    cs: number;
     match: number;
-};
+} & DataRecord;
 
 export default class Search extends Vue.extend({
     components: {ModelViewer, ImageThumb, ImageViewer},
@@ -52,7 +35,10 @@ export default class Search extends Vue.extend({
             large: {
                 show: false,
                 imageUrl: '',
-                flip: false
+                flip: false,
+                id: '',
+                author: '',
+                source: '',
             }
         };
     },
@@ -97,6 +83,9 @@ export default class Search extends Vue.extend({
             this.large.imageUrl = img.url;
             this.large.flip = img.flip;
             this.large.show = true;
+            this.large.id = getPhotoId(img) || '';
+            this.large.author = img.au || '';
+            this.large.source = img.src || '';
         }
     }
 }) {

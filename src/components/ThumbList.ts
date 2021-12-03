@@ -1,6 +1,6 @@
-import Vue, {PropType} from 'vue'
-import {getFlickrThumb} from '../utils/flickr'
-import throttle from '../utils/throttle'
+import Vue, {PropType} from 'vue';
+import {getFlickrThumb} from '../utils/flickr';
+import throttle from '../utils/throttle';
 
 const THUMB_SIZE = 116;
 const THUMB_MARGIN = 8;

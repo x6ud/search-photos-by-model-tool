@@ -9,7 +9,7 @@
                  :class="{active: active === index}"
                  @click="select(index)"
             >
-                <div class="label">#{{index + 1}}</div>
+                <div class="label">#{{ index + 1 }}</div>
                 <img :src="url" alt=""
                      v-if="index >= firstVisibleIndex && index <= lastVisibleIndex"
                 >
@@ -27,63 +27,63 @@
 <script lang="ts" src="./ThumbList.ts"></script>
 
 <style lang="scss" scoped>
-    .thumb-list {
+.thumb-list {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 8px;
+    overflow-y: scroll;
+
+    .list {
         width: 100%;
-        box-sizing: border-box;
-        padding-right: 8px;
-        overflow-y: scroll;
+        margin: 0 auto;
 
-        .list {
+        .thumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
             width: 100%;
-            margin: 0 auto;
+            height: 116px;
+            box-sizing: border-box;
+            margin-bottom: 8px;
+            background: #f2f2f2;
+            cursor: pointer;
+            transition: background-color .3s;
 
-            .thumb {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                width: 100%;
-                height: 116px;
-                box-sizing: border-box;
-                margin-bottom: 8px;
-                background: #f2f2f2;
-                cursor: pointer;
-                transition: background-color .3s;
+            &.active {
+                background-color: #69b7ff;
+            }
 
-                &.active {
-                    background-color: #69b7ff;
-                }
+            img {
+                max-width: 100px;
+                max-height: 100px;
+            }
 
-                img {
-                    max-width: 100px;
-                    max-height: 100px;
-                }
+            .label {
+                position: absolute;
+                z-index: 2;
+                left: 4px;
+                top: 4px;
+                pointer-events: none;
+                user-select: none;
+            }
 
-                .label {
-                    position: absolute;
-                    z-index: 2;
-                    left: 4px;
-                    top: 4px;
-                    pointer-events: none;
-                    user-select: none;
-                }
+            .btn-remove {
+                position: absolute;
+                z-index: 2;
+                top: 4px;
+                right: 4px;
+                border-color: transparent;
+                opacity: 0;
+                transition: all .3s;
+            }
 
+            &:hover {
                 .btn-remove {
-                    position: absolute;
-                    z-index: 2;
-                    top: 4px;
-                    right: 4px;
-                    border-color: transparent;
-                    opacity: 0;
-                    transition: all .3s;
-                }
-
-                &:hover {
-                    .btn-remove {
-                        opacity: 1;
-                    }
+                    opacity: 1;
                 }
             }
         }
     }
+}
 </style>

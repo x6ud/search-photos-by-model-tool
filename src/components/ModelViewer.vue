@@ -20,11 +20,11 @@
 <script lang="ts" src="./ModelViewer.ts"></script>
 
 <style lang="scss" scoped>
-    .model-viewer {
-        position: relative;
+.model-viewer {
+    position: relative;
 
-        canvas {
-            cursor: grab;
-        }
+    canvas {
+        cursor: grab;
     }
+}
 </style>

@@ -1,4 +1,4 @@
-import Vue, {PropType} from 'vue'
+import Vue, {PropType} from 'vue';
 
 function isElementInViewport(el: Element) {
     const rect = el.getBoundingClientRect(),

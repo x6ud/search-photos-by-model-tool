@@ -1,10 +1,13 @@
-import Vue from 'vue'
-import {getFlickrAuthorLink} from "../utils/flickr";
+import Vue from 'vue';
+import {getPhotoAuthorLink, getPhotoSourceType, getSourceLink, PhotoSourceType} from '../utils/photo';
 
 export default class ImageViewer extends Vue.extend({
     props: {
         show: Boolean,
         imageUrl: String,
+        id: String,
+        author: String,
+        source: String,
         flip: {
             type: Boolean,
             default: false
@@ -45,17 +48,24 @@ export default class ImageViewer extends Vue.extend({
                 transform: `scaleX(${this.zoom * (this.flip ? -1 : 1)}) scaleY(${this.zoom})`
             };
         },
-        flickrAuthorLink(): string | null {
-            return getFlickrAuthorLink(this.imageUrl);
-        }
+        sourceType(): PhotoSourceType {
+            return getPhotoSourceType(this.imageUrl);
+        },
+        sourceLink(): string {
+            return getSourceLink(this.sourceType) || '';
+        },
+        authorLink(): string | null {
+            return getPhotoAuthorLink(
+                this.sourceType,
+                this.id,
+                this.source
+            );
+        },
     },
     methods: {
         close() {
             this.$emit('update:show', false);
         },
-        openAuthorLink() {
-            window.open(this.flickrAuthorLink!);
-        }
     }
 }) {
 }

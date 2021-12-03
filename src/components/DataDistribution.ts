@@ -1,5 +1,5 @@
-import Vue, {PropType} from 'vue'
-import {degEulerToQuaternion} from '../utils/quaternion'
+import Vue, {PropType} from 'vue';
+import {degEulerToQuaternion} from '../utils/quaternion';
 
 export default class DataDistribution extends Vue.extend({
     props: {

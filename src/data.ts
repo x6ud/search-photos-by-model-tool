@@ -8,6 +8,7 @@ import cheetah from './data/cheetah.json'
 import deer from './data/deer.json'
 import doberman from './data/doberman.json'
 import eagle from './data/eagle.json'
+import ferret from './data/ferret.json'
 import fox from './data/fox.json'
 import frog from './data/frog.json'
 import germanShepherd from './data/german-shepherd.json'
@@ -47,6 +48,7 @@ export default [
     ...deer,
     ...doberman,
     ...eagle,
+    ...ferret,
     ...fox,
     ...frog,
     ...germanShepherd,

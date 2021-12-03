@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import Axios from 'axios';
 
 type PhotosSearchResponse = {
     stat: string,

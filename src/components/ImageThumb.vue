@@ -12,22 +12,22 @@
 <script lang="ts" src="./ImageThumb.ts"></script>
 
 <style lang="scss" scoped>
-    .thumb {
-        display: inline-block;
+.thumb {
+    display: inline-block;
 
-        .thumb-inner-wrapper {
-            position: relative;
-            background-color: #f2f2f2;
-            overflow: hidden;
+    .thumb-inner-wrapper {
+        position: relative;
+        background-color: #f2f2f2;
+        overflow: hidden;
 
-            &.flip {
-                transform: scale(-1, 1);
-                transform-origin: 50% 50%;
-            }
+        &.flip {
+            transform: scale(-1, 1);
+            transform-origin: 50% 50%;
+        }
 
-            img {
-                position: absolute;
-            }
+        img {
+            position: absolute;
         }
     }
+}
 </style>

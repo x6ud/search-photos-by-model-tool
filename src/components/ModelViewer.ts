@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import * as THREE from 'three'
-import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader'
+import * as THREE from 'three';
+import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
+import Vue from 'vue';
 
 const DEG_2_RAD = 1 / 180 * Math.PI;
 const ZOOM_MAX = 20;

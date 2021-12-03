@@ -1,33 +1,25 @@
-import Vue from 'vue'
-import Axios from 'axios'
-import {message, Modal} from 'ant-design-vue'
+import {message, Modal} from 'ant-design-vue';
+import Axios from 'axios';
+import Vue from 'vue';
+import DataDistribution from '../components/DataDistribution.vue';
+import ImageClip from '../components/ImageClip.vue';
+import ModelViewer from '../components/ModelViewer.vue';
+import ThumbList from '../components/ThumbList.vue';
+import data from '../data';
+import models from '../models';
+import isImageExists from '../utils/is-image-exists';
+import {
+    DataRecord,
+    getPhotoAuthorInfo,
+    getPhotoId,
+    PhotoSearchResultPage,
+    PhotoSourceType,
+    searchPhotos
+} from '../utils/photo';
 
-import ModelViewer from '../components/ModelViewer.vue'
-import DataDistribution from '../components/DataDistribution.vue'
-import ImageClip from '../components/ImageClip.vue'
-import ThumbList from '../components/ThumbList.vue'
-
-import {FlickrSearchResult, flickrSearch, getFlickrId} from '../utils/flickr'
-import isImageExists from '../utils/is-image-exists'
-
-import models from '../models'
-import data from '../data'
-
-type Model = { name: string, path: string, origin: string };
-type DataRecord = {
-    rx: number,
-    ry: number,
-    rz: number,
-    url: string,
-    cx: number,
-    cy: number,
-    cs: number,
-    w: number,
-    h: number,
-    tags: string[]
-};
 
 const LOCAL_STORAGE_KEY__FLICKER_API_KEY = 'flicker-api-key';
+const LOCAL_STORAGE_KEY__UNSPLASH_ACCESS_KEY = 'unsplash-access-key';
 
 const api = Axios.create({baseURL: '/server'});
 
@@ -50,21 +42,11 @@ async function saveJsonFile(filename: string, data: any) {
     );
 }
 
-const existedPhotoIds: Set<string> = new Set();
-data.forEach(record => {
-    const id = getFlickrId(record.url);
-    if (id) {
-        existedPhotoIds.add(id);
-    }
-});
-
 export default class Editor extends Vue.extend({
     components: {ModelViewer, DataDistribution, ImageClip, ThumbList},
     data() {
         return {
-            modelViewerSize: 300,
-            models: models as Model[],
-            data: data as DataRecord[],
+            models,
             model: {
                 url: models[0].path,
                 rotateX: 0,
@@ -72,18 +54,16 @@ export default class Editor extends Vue.extend({
                 rotateZ: 0,
                 zoom: 10,
             },
-            dataDistributionFilterTag: '',
-            search: {
-                perPage: 100,
-                apiKey: '',
-                keywords: '',
-                loading: false,
-                result: {page: 0, pages: 0, perPage: 0, total: 0, photos: []} as FlickrSearchResult,
-                actualIndex: -1,
-                currentPage: 1,
-                currentIndex: -1,
-                lastKeywords: ''
-            },
+            photoSourceOptions: ['Flickr', 'Unsplash'] as PhotoSourceType[],
+            photoSource: 'Unsplash' as PhotoSourceType,
+            apiKey: '',
+            keywords: '',
+            searchLoading: false,
+            page: {
+                page: 1,
+                totalPages: 0,
+                photos: [],
+            } as PhotoSearchResultPage,
             clip: {
                 imageUrl: '',
                 tags: [] as string[],
@@ -91,123 +71,122 @@ export default class Editor extends Vue.extend({
                 height: 0,
                 clipLeft: 0,
                 clipTop: 0,
-                clipSize: 0
+                clipSize: 0,
+                author: '',
+                source: '',
+                id: '',
             },
-            file: {
-                files: [] as string[],
-                filename: '',
-                data: [] as DataRecord[],
-                selectedIndex: -1,
-            },
+            filename: '',
+            files: [] as string[],
+            records: [] as DataRecord[],
+            recordIndex: -1,
             check: {
                 checking: false,
                 progress: 0,
                 total: 0,
                 filename: ''
-            }
+            },
+            dataDistributionFilterTag: '',
         };
     },
     watch: {
-        'search.apiKey'(val) {
-            localStorage.setItem(LOCAL_STORAGE_KEY__FLICKER_API_KEY, val);
+        photoSource: {
+            handler(val: PhotoSourceType) {
+                switch (val) {
+                    case 'Flickr':
+                        this.apiKey = localStorage.getItem(LOCAL_STORAGE_KEY__FLICKER_API_KEY) || '';
+                        break;
+                    case 'Unsplash':
+                        this.apiKey = localStorage.getItem(LOCAL_STORAGE_KEY__UNSPLASH_ACCESS_KEY) || '';
+                        break;
+                    default:
+                        this.apiKey = '';
+                        break;
+                }
+            },
+            immediate: true,
         },
-        async 'file.filename'(filename) {
-            if (this.file.files.includes(filename)) {
-                this.file.data = await loadJsonFile(filename + '.json');
-                this.file.selectedIndex = -1;
-                this.clip.tags = [];
+        apiKey(val: string) {
+            switch (this.photoSource) {
+                case 'Flickr':
+                    localStorage.setItem(LOCAL_STORAGE_KEY__FLICKER_API_KEY, val);
+                    break;
+                case 'Unsplash':
+                    localStorage.setItem(LOCAL_STORAGE_KEY__UNSPLASH_ACCESS_KEY, val);
+                    break;
             }
         },
-        'clip.imageUrl'(url) {
-            const id = getFlickrId(url);
-            if (id) {
-                this.thumbListSelect(this.file.data.findIndex(record => getFlickrId(record.url) === id));
+        async filename(filename) {
+            if (this.files.includes(filename)) {
+                this.records = await loadJsonFile(filename + '.json');
+                this.recordIndex = -1;
+                this.clip.tags = [];
             }
         },
     },
     computed: {
         tags(): { [tag: string]: number } {
             const map: { [tag: string]: number } = {};
-            this.data.forEach(record => record.tags.forEach(tag => {
+            data.forEach(record => record.tags.forEach(tag => {
                 map[tag] = (map[tag] || 0) + 1;
             }));
             return map;
         },
         dataWithTag(): DataRecord[] {
-            return this.data.filter(photo => photo.tags.includes(this.dataDistributionFilterTag));
+            return data.filter(photo => photo.tags.includes(this.dataDistributionFilterTag));
         },
-        currentSearchResultNo(): number {
-            return (Math.max(1, this.search.result.page) - 1) * this.search.perPage + this.search.actualIndex + 1;
-        }
     },
     async mounted() {
-        this.search.apiKey = localStorage.getItem(LOCAL_STORAGE_KEY__FLICKER_API_KEY) || '';
-        this.file.files = (await loadFileList());
+        this.files = await loadFileList();
     },
     methods: {
-        async searchFlickr() {
+        async search(page: number) {
+            if (!this.keywords) {
+                return;
+            }
             try {
-                this.search.loading = true;
-                this.search.result = await flickrSearch(this.search.apiKey, this.search.keywords, this.search.perPage, this.search.currentPage);
-                this.search.lastKeywords = this.search.keywords;
-                this.search.actualIndex = this.search.currentIndex;
+                this.searchLoading = true;
+                this.page.photos = [];
+                this.page = await searchPhotos(
+                    this.photoSource,
+                    this.apiKey,
+                    this.keywords,
+                    20,
+                    page || 1
+                );
             } finally {
-                this.search.loading = false;
+                this.searchLoading = false;
             }
         },
-        async moveSearchWindow(index: number) {
-            if (this.search.lastKeywords !== this.search.keywords) {
-                this.search.currentPage = 1;
-                this.search.currentIndex = 0;
-                await this.searchFlickr();
-                return true;
+        async prevPage() {
+            const page = Math.max(1, this.page.page - 1);
+            if (page === this.page.page) {
+                return;
             }
-            let page = this.search.currentPage;
-            if (index < 0) {
-                index = this.search.perPage - 1;
-                page -= 1;
-            } else if (index >= this.search.result.perPage) {
-                index = 0;
-                page += 1;
+            await this.search(page);
+        },
+        async nextPage() {
+            const page = Math.min(this.page.totalPages, this.page.page + 1);
+            if (page === this.page.page) {
+                return;
+            }
+            await this.search(page);
+        },
+        async selectPhoto(photo: { id: string, thumb: string, regular: string }) {
+            const recordIndex = photo.id ? this.records.findIndex(record => getPhotoId(record) === photo.id) : -1;
+            if (recordIndex >= 0) {
+                this.selectRecord(recordIndex);
             } else {
-                this.search.actualIndex = this.search.currentIndex = index;
-                return true;
-            }
-            if (page < 0 || page > this.search.result.pages) {
-                return false;
-            }
-            this.search.currentIndex = index;
-            this.search.currentPage = page;
-            await this.searchFlickr();
-            return true;
-        },
-        async getOne(indexStep: number) {
-            for (; ;) {
-                if (await this.moveSearchWindow(this.search.currentIndex + indexStep)) {
-                    const imageUrl = this.search.result.photos[this.search.currentIndex]?.large || '';
-                    const id = getFlickrId(imageUrl);
-                    if (!(id && existedPhotoIds.has(id))) {
-                        this.clip.imageUrl = imageUrl;
-                        break;
-                    }
-                    if (!id) {
-                        break;
-                    }
-                } else {
-                    break;
-                }
+                this.clip.id = photo.id;
+                this.clip.imageUrl = photo.regular;
+                const authorInfo = await getPhotoAuthorInfo(this.photoSource, this.apiKey, photo.id);
+                this.clip.author = authorInfo.author;
+                this.clip.source = authorInfo.source;
             }
         },
-        getPrevOne() {
-            return this.getOne(-1);
-        },
-        getNextOne() {
-            return this.getOne(1);
-        },
-        saveRecord() {
-            const imageUrl = this.clip.imageUrl;
-            const id = getFlickrId(imageUrl);
-            let record = id && this.file.data.find(item => getFlickrId(item.url) === id) || null;
+        addToList() {
+            const id = this.clip.id;
+            let record = id && this.records.find(item => getPhotoId(item) === id) || null;
             if (!record) {
                 record = {
                     rx: 0,
@@ -219,9 +198,9 @@ export default class Editor extends Vue.extend({
                     cs: 0,
                     w: 0,
                     h: 0,
-                    tags: []
+                    tags: [],
                 };
-                this.file.data.push(record);
+                this.records.push(record);
             }
             record.url = this.clip.imageUrl;
             record.tags = [...this.clip.tags];
@@ -233,11 +212,14 @@ export default class Editor extends Vue.extend({
             record.rx = this.model.rotateX;
             record.ry = this.model.rotateY;
             record.rz = this.model.rotateZ;
-            this.file.selectedIndex = this.file.data.indexOf(record);
+            record.au = this.clip.author;
+            record.src = this.clip.source;
+            record.id = this.clip.id;
+            this.recordIndex = this.records.indexOf(record);
         },
-        thumbListSelect(index: number) {
-            this.file.selectedIndex = index;
-            const record = this.file.data[index];
+        selectRecord(index: number) {
+            this.recordIndex = index;
+            const record = this.records[index];
             if (record) {
                 this.clip.imageUrl = record.url;
                 this.clip.tags = [...record.tags];
@@ -249,40 +231,44 @@ export default class Editor extends Vue.extend({
                 this.model.rotateX = record.rx;
                 this.model.rotateY = record.ry;
                 this.model.rotateZ = record.rz;
+                this.clip.author = record.au || '';
+                this.clip.source = record.src || '';
+                this.clip.id = record.id || '';
             }
         },
-        thumbListRemove(index: number) {
+        removeRecord(index: number) {
             Modal.confirm({
                 title: 'Are you sure you want to delete?',
                 onOk: () => {
-                    this.file.data.splice(index, 1);
-                    if (this.file.selectedIndex === index) {
-                        this.file.selectedIndex = -1;
+                    this.records.splice(index, 1);
+                    if (this.recordIndex === index) {
+                        this.recordIndex = -1;
                     }
                 }
             });
         },
         createNew() {
-            if (this.file.data.length) {
+            if (this.records.length) {
                 Modal.confirm({
                     title: 'Are you sure you want to create a new list?',
                     onOk: () => {
-                        this.file.selectedIndex = -1;
-                        this.file.data = [];
+                        this.recordIndex = -1;
+                        this.records = [];
                         this.clip.tags = [];
-                        if (this.file.files.includes(this.file.filename)) {
-                            this.file.filename = '';
+                        this.clip.id = '';
+                        if (this.files.includes(this.filename)) {
+                            this.filename = '';
                         }
                     }
                 });
             }
         },
         async saveJson() {
-            await saveJsonFile(this.file.filename + '.json', this.file.data);
+            await saveJsonFile(this.filename + '.json', this.records);
             message.success('Saved.');
         },
         async auditCurrentList() {
-            this.file.data = await this.auditPictures(this.file.data, this.file.filename);
+            this.records = await this.auditPictures(this.records, this.filename);
         },
         async auditAll() {
             const allFiles = await loadFileList();
@@ -315,7 +301,7 @@ export default class Editor extends Vue.extend({
             await Promise.all(promises);
             message.success(`${filename}: ${invalid.length} removed.`);
             return content.filter(item => !invalid.includes(item));
-        }
+        },
     }
 }) {
 }

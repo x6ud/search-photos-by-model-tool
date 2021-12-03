@@ -1,4 +1,6 @@
-const models: { name: string, path: string, origin: string }[] = [
+export type Model = { name: string, path: string, origin: string };
+
+const models: Model[] = [
     {
         name: 'Wolf Skull (for canis)',
         path: './static/models/wolf-skull.obj',

@@ -38,72 +38,78 @@
 <script lang="ts" src="./ImageClip.ts"></script>
 
 <style lang="scss" scoped>
-    .image-clip {
+.image-clip {
+    display: flex;
+    align-items: flex-start;
+
+    .slider-wrapper {
+        display: flex;
+        line-height: 36px;
+        align-items: center;
+
+        .prefix, .postfix {
+            display: inline-block;
+            vertical-align: middle;
+            min-width: 2.5em;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .prefix {
+            margin-right: .5em;
+        }
+
+        .slider {
+            flex: 1;
+            vertical-align: middle;
+        }
+    }
+
+    .side {
+        flex: 0 0 160px;
+
+        .small {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background-color: #f2f2f2;
+            overflow: hidden;
+        }
+    }
+
+    .main {
+        flex: 1 1;
         display: flex;
         align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
+        margin-left: 10px;
+        min-width: 0;
 
-        .slider-wrapper {
-            display: flex;
-            line-height: 36px;
-
-            .prefix, .postfix {
-                display: inline-block;
-                vertical-align: middle;
-                min-width: 2.5em;
-                text-align: center;
-            }
-
-            .slider {
-                flex: 1;
-                vertical-align: middle;
-            }
-        }
-
-        .side {
-            flex: 0 0 160px;
-
-            .small {
-                position: relative;
-                width: 160px;
-                height: 160px;
-                background-color: #f2f2f2;
-                overflow: hidden;
-            }
-        }
-
-        .main {
-            flex: 1 1;
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
+        .large {
+            flex: 1 0;
+            position: relative;
+            width: 100%;
             height: 100%;
-            margin-left: 10px;
-            min-width: 0;
+            background-color: #f2f2f2;
+            overflow: auto;
 
-            .large {
-                flex: 1 0;
-                position: relative;
+            .image-clip {
+                position: absolute;
+                z-index: 1;
+                box-sizing: border-box;
+                border: solid 1px #409EFF;
+                background-color: rgba(64, 158, 255, 0.25);
+                cursor: move;
+            }
+        }
+
+        /deep/ {
+            .ant-spin-nested-loading {
                 width: 100%;
                 height: 100%;
-                background-color: #f2f2f2;
-                overflow: auto;
-
-                .image-clip {
-                    position: absolute;
-                    z-index: 1;
-                    box-sizing: border-box;
-                    border: solid 1px #409EFF;
-                    background-color: rgba(64, 158, 255, 0.25);
-                    cursor: move;
-                }
-            }
-
-            /deep/ {
-                .ant-spin-nested-loading {
-                    width: 100%;
-                    height: 100%;
-                }
             }
         }
     }
+}
 </style>

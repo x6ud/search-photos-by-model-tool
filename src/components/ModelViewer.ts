@@ -217,7 +217,7 @@ export default class ModelViewer extends Vue.extend({
         },
         mouseWheel(e: WheelEvent) {
             const delta = Math.max(-1, Math.min(1, -e.deltaY));
-            this.$emit('update:zoom', Math.min(ZOOM_MAX, Math.max(0, this.zoom - delta)));
+            this.$emit('update:zoom', Math.min(ZOOM_MAX, Math.max(0, this.zoom + delta)));
         }
     }
 }) {

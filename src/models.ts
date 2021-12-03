@@ -42,14 +42,24 @@ const models: Model[] = [
         origin: 'https://sketchfab.com/3d-models/wolverine-skull-98c8a4ac83604d1384990916da2dd440'
     },
     {
+        name: 'Opossum Skull',
+        path: './static/models/opossum-skull.obj',
+        origin: 'https://www.thingiverse.com/Spfaff1994/designs'
+    },
+    {
         name: 'River Otter Skull',
         path: './static/models/river-otter-skull.obj',
         origin: 'https://sketchfab.com/3d-models/river-otter-skull-c17e2cd117714da7a3592c1f13ec64ac'
     },
     {
-        name: 'Opossum Skull',
-        path: './static/models/opossum-skull.obj',
-        origin: 'https://www.thingiverse.com/Spfaff1994/designs'
+        name: 'Sea Lion Skull',
+        path: './static/models/sea-lion-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/sea-lion-skull-6394af7f20dd42869baf8fc6c77fe11a'
+    },
+    {
+        name: 'Leopard Seal Skull',
+        path: './static/models/leopard-seal-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/leopard-seal-skull-0050849b83cc4ae09d28580030dd51be'
     },
     {
         name: 'Kangaroo Skull',
@@ -117,9 +127,14 @@ const models: Model[] = [
         origin: 'https://sketchfab.com/uod_museums'
     },
     {
-        name: 'Chicken Skull (for birds)',
+        name: 'Chicken Skull',
         path: './static/models/chicken-skull.obj',
         origin: 'https://sketchfab.com/misterdevious'
+    },
+    {
+        name: 'Hawk Skull',
+        path: './static/models/hawk-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/red-tailed-hawk-skull-28380a6911ff4aa19ba9e7ace41240f9'
     },
     {
         name: 'Crocodile Skull',
@@ -132,9 +147,14 @@ const models: Model[] = [
         origin: 'https://sketchfab.com/neometrixtech'
     },
     {
-        name: 'Iguana Skull (for lizards)',
+        name: 'Iguana Skull',
         path: './static/models/iguana-skull.obj',
         origin: 'https://sketchfab.com/3d-models/green-iguana-skull-ouvc-10677-1427f887e0fd41eb9c9c97e07c3610e3'
+    },
+    {
+        name: 'Turtle Skull',
+        path: './static/models/turtle-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/turtle-skull-7f9ed32646e74368b09193f430423f37'
     },
     {
         name: 'Frog Skull',
@@ -150,6 +170,11 @@ const models: Model[] = [
         name: 'Dolphin Skull',
         path: './static/models/dolphin-skull.obj',
         origin: 'https://sketchfab.com/geoffreymarchal'
+    },
+    {
+        name: 'False Killer Whale Skull',
+        path: './static/models/false-killer-whale-skull.obj',
+        origin: 'https://sketchfab.com/3d-models/false-killer-whale-skull-bf444b83934243b4be0c8ddaa7b397f4'
     },
     {
         name: 'Human Skull',

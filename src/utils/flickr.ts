@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-type PhotosSearchResponse = {
+type FlickrPhotosSearchResponse = {
     stat: string,
     photos: {
         page: number,
@@ -77,7 +77,7 @@ export async function flickrSearch(
     });
     const apiUrl = 'https://api.flickr.com/services/rest/?' + params.toString();
     const response = await Axios.create().get(apiUrl);
-    const data = response.data as PhotosSearchResponse;
+    const data = response.data as FlickrPhotosSearchResponse;
     if (data.stat !== 'ok') {
         throw new Error('Request failed');
     }

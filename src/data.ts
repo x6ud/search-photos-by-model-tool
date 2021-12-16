@@ -20,6 +20,7 @@ import hawk from './data/hawk.json'
 import horse from './data/horse.json'
 import husky from './data/husky.json'
 import hyena from './data/hyena.json'
+import killerWhale from './data/killer-whale.json'
 import labrador from './data/labrador.json'
 import leopard from './data/leopard.json'
 import lion from './data/lion.json'
@@ -27,10 +28,12 @@ import lizard from './data/lizard.json'
 import lynx from './data/lynx.json'
 import opossum from './data/opossum.json'
 import pig from './data/pig.json'
+import polarBear from './data/polar-bear.json'
 import rabbit from './data/rabbit.json'
 import raccoon from './data/raccoon.json'
 import rat from './data/rat.json'
 import raven from './data/raven.json'
+import reindeer from './data/reindeer.json'
 import rhino from './data/rhino.json'
 import riverOtter from './data/river-otter.json'
 import skunk from './data/skunk.json'
@@ -62,6 +65,7 @@ export default [
     ...horse,
     ...husky,
     ...hyena,
+    ...killerWhale,
     ...labrador,
     ...leopard,
     ...lion,
@@ -69,10 +73,12 @@ export default [
     ...lynx,
     ...opossum,
     ...pig,
+    ...polarBear,
     ...rabbit,
     ...raccoon,
     ...rat,
     ...raven,
+    ...reindeer,
     ...rhino,
     ...riverOtter,
     ...skunk,

@@ -218,16 +218,14 @@
                 padding: 10px 0;
             }
 
-            $handler-size: 48px;
-
             .collapse-handler {
                 display: block !important;
                 position: fixed;
                 left: 50%;
                 top: 100%;
-                width: $handler-size;
-                height: $handler-size;
-                margin: (-$handler-size / 2) 0 0 (-$handler-size / 2);
+                width: 48px;
+                height: 48px;
+                margin: 24px 0 0 24px;
                 border-radius: 100%;
                 overflow: hidden;
                 background-color: rgba(0, 0, 0, 0.2);
@@ -236,7 +234,7 @@
                 text-align: center;
 
                 .icon {
-                    width: $handler-size;
+                    width: 48px;
                 }
             }
 
@@ -249,7 +247,7 @@
                     .icon {
                         transform-origin: 50% 50%;
                         transform: rotate(180deg);
-                        margin-top: $handler-size / 2;
+                        margin-top: 24px;
                     }
                 }
             }

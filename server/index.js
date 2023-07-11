@@ -1,12 +1,10 @@
-import {Express, Request, Response} from 'express'
-
 const fs = require('fs').promises;
 const bodyParser = require('body-parser');
 
-module.exports = function (app: Express) {
+module.exports = function (app) {
     app.use(bodyParser.text());
 
-    app.get('/server/dataList', async function (req: Request, res: Response) {
+    app.get('/server/dataList', async function (req, res) {
         try {
             res.json(await fs.readdir('./src/data'));
         } catch (err) {
@@ -14,7 +12,7 @@ module.exports = function (app: Express) {
         }
     });
 
-    app.get('/server/data', async function (req: Request, res: Response) {
+    app.get('/server/data', async function (req, res) {
         const name = req.query.name;
         try {
             res.send((await fs.readFile('./src/data/' + name)).toString());
@@ -23,12 +21,12 @@ module.exports = function (app: Express) {
         }
     });
 
-    app.post('/server/data', async function (req: Request, res: Response) {
+    app.post('/server/data', async function (req, res) {
         const name = req.query.name;
         const content = req.body;
         try {
             await fs.writeFile('./src/data/' + name, content);
-            const files: string[] = await fs.readdir('./src/data');
+            const files = await fs.readdir('./src/data');
             const names = files.map(
                 filename => filename
                     .substr(0, filename.length - '.json'.length)

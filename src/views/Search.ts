@@ -28,6 +28,7 @@ export default class Search extends Vue.extend({
                 rotateY: 0,
                 rotateZ: 0,
                 zoom: 10,
+                gizmo: true,
             },
             keyword: '',
             result: [] as SearchResult[],

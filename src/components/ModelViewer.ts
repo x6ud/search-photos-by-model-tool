@@ -1,10 +1,12 @@
 import * as THREE from 'three';
+import {TransformControls} from 'three/examples/jsm/controls/TransformControls';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
 import Vue from 'vue';
 
 const DEG_2_RAD = 1 / 180 * Math.PI;
+const RAD_2_DEG = 1 / Math.PI * 180;
 const ZOOM_MAX = 20;
-const FPS = 25;
+const FPS = 30;
 
 export default class ModelViewer extends Vue.extend({
     props: {
@@ -34,9 +36,13 @@ export default class ModelViewer extends Vue.extend({
         },
         clearColor: {
             type: Number,
-            default: 0xf2f2f2
+            default: 0xf1f3f4
         },
-        modelUrl: String
+        modelUrl: String,
+        gizmo: {
+            type: Boolean,
+            default: true,
+        },
     },
     watch: {
         modelUrl() {
@@ -44,23 +50,47 @@ export default class ModelViewer extends Vue.extend({
         },
         rotateX(val) {
             const modelViewer = this as ModelViewer;
+            if (modelViewer.control?.dragging) {
+                return;
+            }
             const model = modelViewer.model;
             if (model) {
-                model.rotation.x = val * DEG_2_RAD;
+                model.rotation.setFromVector3(
+                    new THREE.Vector3(
+                        this.rotateX * DEG_2_RAD,
+                        this.rotateY * DEG_2_RAD,
+                        this.rotateZ * DEG_2_RAD
+                    ));
             }
         },
         rotateY(val) {
             const modelViewer = this as ModelViewer;
+            if (modelViewer.control?.dragging) {
+                return;
+            }
             const model = modelViewer.model;
             if (model) {
-                model.rotation.y = val * DEG_2_RAD;
+                model.rotation.setFromVector3(
+                    new THREE.Vector3(
+                        this.rotateX * DEG_2_RAD,
+                        this.rotateY * DEG_2_RAD,
+                        this.rotateZ * DEG_2_RAD
+                    ));
             }
         },
         rotateZ(val) {
             const modelViewer = this as ModelViewer;
+            if (modelViewer.control?.dragging) {
+                return;
+            }
             const model = modelViewer.model;
             if (model) {
-                model.rotation.z = val * DEG_2_RAD;
+                model.rotation.setFromVector3(
+                    new THREE.Vector3(
+                        this.rotateX * DEG_2_RAD,
+                        this.rotateY * DEG_2_RAD,
+                        this.rotateZ * DEG_2_RAD
+                    ));
             }
         },
         zoom(val) {
@@ -69,6 +99,10 @@ export default class ModelViewer extends Vue.extend({
             if (camera) {
                 camera.position.z = ZOOM_MAX - val;
             }
+        },
+        gizmo(val) {
+            const modelViewer = this as ModelViewer;
+            modelViewer.control!.visible = modelViewer.control!.enabled = val;
         }
     },
     data() {
@@ -81,6 +115,7 @@ export default class ModelViewer extends Vue.extend({
     },
     mounted(): void {
         const modelViewer = this as ModelViewer;
+        (window as any).modelViewer = this;
         const renderer = modelViewer.renderer = new THREE.WebGLRenderer({
             canvas: this.$refs.canvas as HTMLCanvasElement
         });
@@ -96,6 +131,21 @@ export default class ModelViewer extends Vue.extend({
         const light = new THREE.DirectionalLight(0xffffff);
         light.position.set(0, 5, 5);
         scene.add(light);
+
+        const control = modelViewer.control = new TransformControls(camera, this.$refs.canvas as HTMLElement);
+        control.setSpace('local');
+        control.setMode('rotate');
+        control.setSize(2);
+        control.visible = control.enabled = this.gizmo;
+        control.addEventListener('dragging-changed', () => {
+            const model = modelViewer.model;
+            if (model) {
+                this.$emit('update:rotateX', Math.round(model.rotation.x * RAD_2_DEG));
+                this.$emit('update:rotateY', Math.round(model.rotation.y * RAD_2_DEG));
+                this.$emit('update:rotateZ', Math.round(model.rotation.z * RAD_2_DEG));
+            }
+        });
+        scene.add(control);
 
         const iid = setInterval(this.render, 1000 / FPS);
         window.addEventListener('mouseup', this.dragStop);
@@ -135,6 +185,7 @@ export default class ModelViewer extends Vue.extend({
 
                 // remove existed
                 if (modelViewer.model) {
+                    modelViewer.control!.detach();
                     modelViewer.scene!.remove(modelViewer.model);
                     modelViewer.model = undefined;
                 }
@@ -170,6 +221,8 @@ export default class ModelViewer extends Vue.extend({
 
                 modelViewer.model = group;
                 modelViewer.scene!.add(group);
+
+                modelViewer.control!.attach(group);
             } finally {
                 this.loading = false;
             }
@@ -179,6 +232,9 @@ export default class ModelViewer extends Vue.extend({
             modelViewer.renderer!.render(modelViewer.scene!, modelViewer.camera!);
         },
         dragStart(e: MouseEvent & TouchEvent) {
+            if (this.gizmo) {
+                return;
+            }
             this.dragging = true;
             this.dragStartX = e.clientX || e.touches && e.touches[0].clientX;
             this.dragStartY = e.clientY || e.touches && e.touches[0].clientY;
@@ -226,4 +282,5 @@ export default class ModelViewer extends Vue.extend({
     camera?: THREE.Camera;
     loader?: OBJLoader;
     model?: THREE.Group;
+    control?: TransformControls;
 }

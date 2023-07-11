@@ -36,6 +36,7 @@
                               :zoom.sync="model.zoom"
                               :width="modelViewerSize"
                               :height="modelViewerSize"
+                              :gizmo="model.gizmo"
                 >
                     <a style="position: absolute; right: 8px; top: 8px; line-height: 14px;"
                        target="_blank" title="Author of this model"
@@ -46,6 +47,7 @@
                 </model-viewer>
 
                 <div class="row">
+                    <a-checkbox v-model:check="model.gizmo">Gizmo</a-checkbox>
                     <span>X: {{ model.rotateX }}; Y: {{ model.rotateY }}; Z: </span>
                     <a-slider :included="false"
                               v-model="model.rotateZ"
@@ -71,7 +73,7 @@
                         Special Thanks: <a href="https://github.com/xrabohrok" target="_blank">xrabohrok</a>
                         - Thank you for helping improve this tool!
                     </div>
-                    <div>Latest update: 2021-12-16</div>
+                    <div>Latest update: 2023-07-11</div>
                     <div>
                         <a href="https://github.com/x6ud/x6ud.github.io/issues" target="_blank">Leave a message</a>
                     </div>
